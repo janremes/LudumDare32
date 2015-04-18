@@ -1,10 +1,13 @@
-(function() {
+(  
+
+  function() {
   'use strict';
 
   function Game() {
     this.player = null;
     this.map = null;
-  }
+  
+    }
 
   Game.prototype = {
 
@@ -40,8 +43,8 @@
 
     onInputDown: function () {
       //this.game.state.start('menu');
-
-      console.log("clicked map");
+   
+      console.log('clicked map');
     }
 
   };
