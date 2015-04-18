@@ -5,9 +5,9 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="nabidka" sketch:type="MSLayerGroup" transform="translate(-361.000000, -118.000000)">
+        <g id="nabidka" sketch:type="MSLayerGroup" transform="translate(-358.000000, -118.000000)">
             <g id="layer3">
-                <rect id="rect8936" opacity="0.77899996" fill="#FFFFFF" sketch:type="MSShapeGroup" x="359.05109" y="194.40948" width="361.25558" height="132.89975"></rect>
+                <rect id="rect8936" opacity="0.77899996" fill="#FFFFFF" sketch:type="MSShapeGroup" x="359.05109" y="190.30923" width="361.25558" height="132.89975"></rect>
                 <g id="happy_mlady" transform="translate(384.909981, 206.296314)" sketch:type="MSShapeGroup">
                     <path d="M35.891505,33.7331701 C28.5695664,42.1560958 15.8217617,43.0896594 7.35084501,35.8232964 C-1.12007159,28.5569337 -2.13748724,15.8155476 5.072985,7.2970064 C12.2834579,-1.22153463 25.0178747,-2.32275746 33.5836714,4.83151315 C42.1494681,11.9857833 43.3344514,24.7126788 36.2366935,33.3253606" id="path9542" fill="#F9A5AB"></path>
                     <g id="g9544" transform="translate(6.932471, 0.000000)">
@@ -68,7 +68,7 @@
                             <path d="M3.87612612,1.57822009 C3.08719043,1.96436794 1.71361953,2.00716722 0.800881297,1.67404207 C-0.111856755,1.34091687 -0.221483174,0.756790015 0.555442138,0.366258735 C1.33236721,-0.0242723371 2.70449474,-0.07475801 3.6274562,0.253227916 C4.55041846,0.581214177 4.67810066,1.16467704 3.91331982,1.55952434" id="path9676"></path>
                             <path d="M21.9234845,1.57822009 C21.1345488,1.96436794 19.7609779,2.00716722 18.8482396,1.67404207 C17.935502,1.3409167 17.8258762,0.756789863 18.6028018,0.366258735 C19.3797269,-0.0242723371 20.7518544,-0.07475801 21.6748159,0.253227916 C22.5977781,0.581214177 22.7254603,1.16467704 21.9606795,1.55952434" id="path9678"></path>
                         </g>
-                        <path d="M30.9959135,37.837595 C26.9580331,42.4826443 19.9988275,43.1740371 15.1259335,39.4142677 C10.2530402,35.6544984 9.15648281,28.7475367 12.6253114,23.6634258" id="path9680" fill="#C83737" transform="translate(20.799469, 32.749196) rotate(37.841216) translate(-20.799469, -32.749196) "></path>
+                        <path d="M30.9959135,37.837595 C26.9580331,42.4826443 19.9988275,43.1740371 15.1259335,39.4142677 C10.2530402,35.6544984 9.15648281,28.7475367 12.6253114,23.6634258" id="path9680" fill="#C83737" transform="translate(20.799469, 32.749196) rotate(-37.000000) translate(-20.799469, -32.749196) "></path>
                         <g id="g9682" transform="translate(5.553990, 17.975112)" stroke="#000000">
                             <rect id="rect9684" stroke-width="1.09941331" x="0.106116329" y="0.147294398" width="10.7655361" height="4.83382396"></rect>
                             <rect id="rect9686" stroke-width="1.09941331" x="18.2991197" y="0.147294398" width="10.7655361" height="4.83382396"></rect>
@@ -77,23 +77,17 @@
                     </g>
                 </g>
                 <path d="M0.41988,0.4002 L365.9144,180.70885" id="pojitko" stroke="#FFFFFF" stroke-width="2.20000005" stroke-dasharray="13.20000029,4.4000001" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <rect id="pomer_sad_mlady" fill="#374845" sketch:type="MSShapeGroup" x="444.26001" y="213.27502" width="193.770004" height="26.870058"></rect>
                 <rect id="pomer_happy_mlady" fill="#D5006C" sketch:type="MSShapeGroup" x="444.33038" y="213.27502" width="193.85456" height="26.870058"></rect>
-                <rect id="pomer_sad_mlady" fill="#374845" sketch:type="MSShapeGroup" x="541.257665" y="213.27502" width="99.769755" height="26.870058"></rect>
-                <rect id="pomer_happy_stary" fill="#D5006C" sketch:type="MSShapeGroup" x="445.03748" y="272.99329" width="193.85456" height="26.870058"></rect>
-                <rect id="pomer_sad_stary" fill="#374845" sketch:type="MSShapeGroup" x="541.96476" y="272.99329" width="99.769755" height="26.870058"></rect>
-                <text id="tspan8647-5" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
-                    <tspan x="610.18494" y="233.86646" fill="#000000">00</tspan>
-                </text>
-                <text id="tspan8647-5-6" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
+                <rect id="pomer_sad_stary" fill="#374845" sketch:type="MSShapeGroup" x="443.960022" y="272.99329" width="194.770004" height="26.870058"></rect>
+                <rect id="pomer_happy_stary" fill="#D5006C" sketch:type="MSShapeGroup" x="444.33038" y="273.124056" width="193.85456" height="26.870058"></rect>
+                <text id="popularity-young" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
                     <tspan x="447.04883" y="234.05255" fill="#000000">00</tspan>
                 </text>
-                <text id="tspan11425" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
-                    <tspan x="610.18494" y="292.90985" fill="#000000">00</tspan>
+                <text id="popularity-old" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
+                    <tspan x="447.04883" y="295.09595" fill="#000000">00</tspan>
                 </text>
-                <text id="tspan11431" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
-                    <tspan x="447.04883" y="293.09595" fill="#000000">00</tspan>
-                </text>
-                <rect id="rect8836" opacity="0.77899996" fill="#999999" sketch:type="MSShapeGroup" x="359.05109" y="116.40948" width="361.25558" height="73.89975"></rect>
+                <rect id="rect8836" fill="#B7B7B7" sketch:type="MSShapeGroup" x="359.05109" y="116.40948" width="361.25558" height="73.89975"></rect>
                 <g id="g8822" transform="translate(380.909981, 128.296314)" sketch:type="MSShapeGroup">
                     <path d="M35.891505,33.7331701 C28.5695664,42.1560958 15.8217617,43.0896594 7.35084501,35.8232964 C-1.12007159,28.5569337 -2.13748724,15.8155476 5.072985,7.2970064 C12.2834579,-1.22153463 25.0178747,-2.32275746 33.5836714,4.83151315 C42.1494681,11.9857833 43.3344514,24.7126788 36.2366935,33.3253606" id="path8824" fill="#F9A5AB"></path>
                     <g id="g8826" transform="translate(6.932471, 0.000000)">

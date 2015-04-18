@@ -20,10 +20,10 @@ function InitGame()
 
     var elm = document.getElementById('svg-map').contentDocument;
 
-    var svgMenu = Snap(document.getElementById('svg-nav'));
+    var svgMenu = Snap('#svg-nav');
 
     var mapsvgdoc = null;
-
+ 
     try {
         mapsvgdoc = elm.contentDocument;
     }
@@ -55,18 +55,20 @@ function InitGame()
 
     }
 
-    managers.map(function (manager) {
+    managers.forEach(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
             manager.onClick();
             updateMenu(manager.country,manager.svgElement);
-        
         });
     });
-    
-    
-    function updateMenu(country,element) {
+
+
+    function updateMenu(country, element) {
         
-        
+        console.log('updating menu' + country);
+
+        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young*200}, 500);
+        svgMenu.select('#pomer_happy_stary').animate({width:  country.popularity.old*200}, 500);
     }
 
     gameState = new GameState(countries);
@@ -92,14 +94,14 @@ function InitGame()
 
 
     // scrolling text
-    
+
     var scrollText = document.getElementById('news-scrolling');
 
     tween = TweenMax.to(scrollText, 5.5, {left: "650px", repeat: 100, yoyo: false, onRepeat: onRepeat, repeatDelay: 3.0, ease: Linear.easeInOut});
     var count = 0;
     function onRepeat() {
         count++;
-        
+
         $('#news-scrolling').text('hello ' + count);
     }
 
@@ -107,7 +109,7 @@ function InitGame()
 
 }
 
-require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee','snap.svg-min'],
+require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee', 'snap.svg-min'],
         function ($, Country, CountryManager, GameState) {
             InitGame();
         });
