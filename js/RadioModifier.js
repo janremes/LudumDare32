@@ -1,24 +1,24 @@
-function TVModifier(country)
+function RadioModifier(country)
 {
-    this.upkeep = constants.tvUpkeep;
-    this.cost = constants.tvCost;
+    this.upkeep = constants.radioUpkeep;
+    this.cost = constants.radioCost;
     this.country = country;
     this.enabled = false;
 }
 
-TVModifier.prototype = {
-    constructor : TVModifier,
+RadioModifier.prototype = {
+    constructor : RadioModifier,
     getTurnEndGameEffect : function()
     {
         var effect = new GameStateEffect();
-        effect.addSpending(this.upkeep, "TV");
+        effect.addSpending(this.upkeep, "Radio");
         return effect;
         
     },
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
-        countryEffect.increasePopularity(constants.tvEffect, "TV");            
+        countryEffect.increasePopularity(constants.radioEffect, "Radio");            
         return countryEffect;
     }
 };
@@ -30,5 +30,5 @@ define(function(require){
     require("Constants");
     ;
     return function(){
-        return TVModifier;
+        return RadioModifier;
 }});

@@ -2,8 +2,13 @@ function Country()
 {
     this.popularity = new PopVector(0.3,0.3);
     this.populationSize = new PopVector(10,10);
-    this.modifiers = [new TVModifier(this)];
+    
+    this.modifiers = [new TVModifier(this), new RadioModifier(this), new WebModifier(this), new NewspaperModifier(this)];
     this.tvIndex = 0;
+    this.radioIndex = 1;
+    this.webIndex = 2;
+    this.newspaperIndex = 3;
+    
     this.lastTurnEffect = new CountryEffect();
     this.neighboursPlayer = false;
     this.neighbouringCountries = [];
@@ -110,7 +115,7 @@ Country.prototype = {
 define(function(require){
     require("CountryEffect");
     require("GameStateEffect");
-    require("TVModifier");
+    require(["TVModifier","RadioModifier","WebModifier","NespaperModifier"]);
     require("Constants");
     
     return function(){

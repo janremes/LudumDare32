@@ -1,24 +1,24 @@
-function TVModifier(country)
+function WebModifier(country)
 {
-    this.upkeep = constants.tvUpkeep;
-    this.cost = constants.tvCost;
+    this.upkeep = constants.webUpkeep;
+    this.cost = constants.webCost;
     this.country = country;
     this.enabled = false;
 }
 
-TVModifier.prototype = {
-    constructor : TVModifier,
+WebModifier.prototype = {
+    constructor : WebModifier,
     getTurnEndGameEffect : function()
     {
         var effect = new GameStateEffect();
-        effect.addSpending(this.upkeep, "TV");
+        effect.addSpending(this.upkeep, "Web");
         return effect;
         
     },
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
-        countryEffect.increasePopularity(constants.tvEffect, "TV");            
+        countryEffect.increasePopularity(constants.webEffect, "Web");            
         return countryEffect;
     }
 };
@@ -30,5 +30,5 @@ define(function(require){
     require("Constants");
     ;
     return function(){
-        return TVModifier;
+        return WebModifier;
 }});
