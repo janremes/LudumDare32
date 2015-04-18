@@ -25,9 +25,10 @@ Country.prototype = {
         this.popularity -= this.popularity * 0.1;
 
         var upkeep = 0;
+        var outerThis = this;
         this.modifiers.forEach(function(modifier){
             upkeep += modifier.upkeep;
-            modifier.apply(this); 
+            modifier.apply(outerThis); 
         });
         
         return new GameStateEffect(-upkeep);

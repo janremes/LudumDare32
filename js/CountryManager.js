@@ -1,14 +1,3 @@
-define(function(require){
-    var dep1 = require("Country"), tl = require("gsap/TweenLite.min"),
-    dd = require("TVModifier")
-    ;
-    return function(){
-        
-//require("gsap/TweenLite.min", function()
-//{
-//    
-//});
-
 function CountryManager(country, svgElement)
 {
     this.country = country;
@@ -34,4 +23,10 @@ CountryManager.prototype = {
     }
 };
 
+define(function(require){
+    var dep1 = require("Country"), tl = require("gsap/TweenLite.min"),
+    dd = require("TVModifier")
+    ;
+    return function(){
+        return CountryManager;
     }});
