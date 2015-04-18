@@ -1,19 +1,34 @@
-require.config({
-    baseUrl: 'js',
-    paths: {
-        // the left side is the module ID,
-        // the right side is the path to
-        // the jQuery file, relative to baseUrl.
-        // Also, the path should NOT include
-        // the '.js' file extension. This example
-        // is using jQuery 1.9.0 located at
-        // js/lib/jquery-1.9.0.js, relative to
-        // the HTML page.
-        jquery: 'jquery-2.1.3.min'
-    }
-});
+//require.config({
+//    baseUrl: 'js',
+//    paths: {
+//        // the left side is the module ID,
+//        // the right side is the path to
+//        // the jQuery file, relative to baseUrl.
+//        // Also, the path should NOT include
+//        // the '.js' file extension. This example
+//        // is using jQuery 1.9.0 located at
+//        // js/lib/jquery-1.9.0.js, relative to
+//        // the HTML page.
+//        jquery: 'jquery-2.1.3.min'
+//    }
+//});
 
 var gameState;
+var managers;
+var moneyElement;
+var myCountryId;
+var countryIds;
+var countries;
+var managers;
+
+function UpdateVisual()
+{
+        managers.forEach(function (m) {
+            m.updateVisual();
+        });
+        
+       // moneyElement.text(gameState.money);    
+}
 
 function InitGame()
 {
@@ -32,10 +47,10 @@ function InitGame()
         mapsvgdoc = elm.getSVGDocument();
     }
 
-    var myCountryId = 'moje_zeme';
-    var countryIds = new Array();
-    var countries = new Array();
-    var managers = new Array();
+    myCountryId = 'moje_zeme';
+    countryIds = new Array();
+    countries = new Array();
+    managers = new Array();
 
     for (var i = 1; i < 10; i++) {
         var id = 'zeme' + i;
@@ -96,7 +111,6 @@ function InitGame()
         countries[i].populationSize = countryData[i].popSize;
         countries[i].popularity = countryData[i].popularity;
         countries[i].id = i + 1;
-        managers[i].updateVisual();
     }
 
     managers.forEach(function (manager) {
@@ -122,6 +136,10 @@ function InitGame()
 
     gameState = new GameState(countries);
 
+    //moneyElement = $(svgMenu.select('#suma_text tspan').node);
+
+    UpdateVisual();
+
     elm.getElementById("next_button").addEventListener("mousedown", function () {
 
         console.log('next clicked');
@@ -135,9 +153,7 @@ function InitGame()
         }
 
         gameState.turnEnd();
-        managers.forEach(function (m) {
-            m.updateVisual();
-        });
+        UpdateVisual();
     });
 
 
@@ -158,7 +174,9 @@ function InitGame()
 
 }
 
-require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee', 'snap.svg-min'],
-        function ($, Country, CountryManager, GameState) {
-            InitGame();
-        });
+InitGame();
+
+//require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee', 'snap.svg-min'],
+//        function ($, Country, CountryManager, GameState) {
+//            InitGame();
+//        });

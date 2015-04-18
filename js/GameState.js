@@ -36,11 +36,11 @@ GameState.prototype = {
     }
 };            
 
-
-define(function(require){
-    var dep1 = require("Country");
-    return function(){
-           
-    return GameState;
-}});
-        
+//
+//define(function(require){
+//    var dep1 = require("Country");
+//    return function(){
+//           
+//    return GameState;
+//}});
+//        

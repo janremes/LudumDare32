@@ -6,7 +6,29 @@
 
   <!-- build:css main.min.css -->
   <link rel="stylesheet" href="css/main.css"> 
-  <script data-main="js/Init" src="js/require.js"></script>
+<!--  <script data-main="js/Init" src="js/require.js"></script>-->
+<script src="js/LAB.min.js"></script>
+<script>
+   $LAB.setGlobalDefaults({BasePath: "js/"})
+   .script("PopVector.js").wait()
+   .script("Constants.js")
+   .script("Country.js")
+   .script("CountryEffect.js")
+   .script("CountryManager.js")
+   .script("GameState.js")
+   .script("GameStateEffect.js")
+   .script("NewspaperModifier.js")
+   .script("RadioModifier.js")
+   .script("TVModifier.js")
+   .script("WebModifier.js")
+   .script("jquery-2.1.3.min.js")
+   .script("jquery.svg.js")
+   .script("snap.svg-min.js")
+   .script("gsap/TweenLite.min.js")
+   .script("xbMarquee.js").wait()
+   
+   .script("Init.js").wait();
+</script>
    <link rel="stylesheet" type="text/css" href="css/jquery.svg.css"> 
    <link rel="stylesheet" type="text/css" href="css/fonts/HeadlineTwoHPLHS-Regular.css"> 
    

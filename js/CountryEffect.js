@@ -38,10 +38,10 @@ CountryEffect.prototype = {
     }
 };
 
-define(function(require){
-   require("PopVector");
-   require("Constants");
-   // ;
-    return function(){
-        return CountryEffect;
-    };});
+//define(function(require){
+//   require("PopVector");
+//   require("Constants");
+//   // ;
+//    return function(){
+//        return CountryEffect;
+//    };});

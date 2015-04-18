@@ -75,9 +75,9 @@ PopVector.prototype = {
     }
 };
 
-define(function(require){
-   // var dep1 = require("CountryEffect"), tl = require("GameStateEffect")
-   // ;
-    return function(){
-        return PopVector;
-    };});
+//define(function(require){
+//   // var dep1 = require("CountryEffect"), tl = require("GameStateEffect")
+//   // ;
+//    return function(){
+//        return PopVector;
+//    };});

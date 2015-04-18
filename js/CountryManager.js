@@ -21,10 +21,10 @@ CountryManager.prototype = {
     }
 };
 
-define(function(require){
-    var dep1 = require("Country"), tl = require("gsap/TweenLite.min"),
-    dd = require("TVModifier")
-    ;
-    return function(){
-        return CountryManager;
-    }});
+//define(function(require){
+//    var dep1 = require("Country"), tl = require("gsap/TweenLite.min"),
+//    dd = require("TVModifier")
+//    ;
+//    return function(){
+//        return CountryManager;
+//    }});

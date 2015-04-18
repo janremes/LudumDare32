@@ -111,13 +111,10 @@ Country.prototype = {
         return (this.popularity.young * this.populationSize.young + this.popularity.old * this.populationSize.old) / (this.populationSize.young + this.populationSize.old);
     }
 };
-
-define(function(require){
-    require("CountryEffect");
-    require("GameStateEffect");
-    require(["TVModifier","RadioModifier","WebModifier","NespaperModifier"]);
-    require("Constants");
-    
-    return function(){
-        return Country;
-    };});
+//
+//define(["CountryEffect","GameStateEffect",
+//    "TVModifier","RadioModifier","WebModifier","NewspaperModifier", "Constants"],
+//    
+//    function(a,b,c,d,e,f,g,h){
+//        return Country;
+//    });

@@ -24,11 +24,11 @@ TVModifier.prototype = {
 };
 
 
-define(function(require){
-    require("GameStateEffect");
-    require("CountryEffect");
-    require("Constants");
-    ;
-    return function(){
-        return TVModifier;
-}});
+//define(function(require){
+//    require("GameStateEffect");
+//    require("CountryEffect");
+//    require("Constants");
+//    ;
+//    return function(){
+//        return TVModifier;
+//}});

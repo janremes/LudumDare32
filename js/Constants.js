@@ -27,10 +27,12 @@ function Constants()
     this.webUpkeep = 200;
 }
 
-var constants = new Constants();
+var constants;
+constants = new Constants();
 
-define(function(require){
-    ;
-    return function(){
-        return Constants;
-}});
+//define(function(require){
+//    require("PopVector");
+//    return function(){
+//        constants = new Constants();
+//        return Constants;
+//};});

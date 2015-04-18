@@ -24,11 +24,11 @@ RadioModifier.prototype = {
 };
 
 
-define(function(require){
-    require("GameStateEffect");
-    require("CountryEffect");
-    require("Constants");
-    ;
-    return function(){
-        return RadioModifier;
-}});
+//define(function(require){
+//    require("GameStateEffect");
+//    require("CountryEffect");
+//    require("Constants");
+//    ;
+//    return function(){
+//        return RadioModifier;
+//}});

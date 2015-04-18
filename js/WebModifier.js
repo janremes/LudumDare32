@@ -23,12 +23,12 @@ WebModifier.prototype = {
     }
 };
 
-
-define(function(require){
-    require("GameStateEffect");
-    require("CountryEffect");
-    require("Constants");
-    ;
-    return function(){
-        return WebModifier;
-}});
+//
+//define(function(require){
+//    require("GameStateEffect");
+//    require("CountryEffect");
+//    require("Constants");
+//    ;
+//    return function(){
+//        return WebModifier;
+//}});
