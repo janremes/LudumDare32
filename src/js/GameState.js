@@ -1,4 +1,4 @@
-GameState = function(countries)
+function GameState(countries)
 {
     this.countries = countries;
 //    this.countries = new Array();

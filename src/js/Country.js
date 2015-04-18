@@ -3,6 +3,7 @@ function Country(svgElement)
     this.svgElement = svgElement;
     this.popularity = 0.3;
     this.happiness = 0.5;
+    this.modifiers = new Array();
 }
 
 Country.prototype = {
@@ -15,5 +16,23 @@ Country.prototype = {
     turnEnd: function()
     {
         this.popularity -= this.popularity * 0.1;
+        this.modifiers.forEach(function(){
+           modifier.apply(this); 
+        });
+    },
+    
+    addModifier : function(modifier)
+    {
+        this.modifiers.push(modifier);
+    },
+    
+    removeModifier : function(modifier)
+    {
+        var index = this.modifiers.indexOf(modifier);
+        if(index < 0)
+        {
+            throw new Error("Modifier not found");
+        }
+        this.modifiers.splice(index, 1);
     }
 };
