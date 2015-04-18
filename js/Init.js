@@ -62,22 +62,40 @@ function InitGame()
     gameState = new GameState(countries);
 
 
-    //elm.addEventListener("mousedown", function() {gameState.turnEnd();});
-
-    // add dummy scrolling text
 
 
-    //elm.$("#tspan8647").text("hello");
 
-    elm.getElementById("tspan8647").textContent = "99999";
-    
-    elm.addEventListener("mousedown", function() {
+    elm.getElementById("next_button").addEventListener("mousedown", function () {
+
+
+        var effect = gameState.getTurnEndEffect();
+
+        if ((gameState.money + effect.money) < 0) {
+
+            alert('You have no money');
+            return;
+        }
+
         gameState.turnEnd();
-        managers.forEach(function(m) {
+        managers.forEach(function (m) {
             m.updateVisual();
         });
     });
-  
+
+
+
+    // scrolling text
+    
+    var scrollText = document.getElementById('news-scrolling');
+
+    tween = TweenMax.to(scrollText, 5.5, {left: "650px", repeat: 100, yoyo: false, onRepeat: onRepeat, repeatDelay: 3.0, ease: Linear.easeInOut});
+    var count = 0;
+    function onRepeat() {
+        count++;
+        
+        $('#news-scrolling').text('hello ' + count);
+    }
+
     console.log("window loaded");
 
 }

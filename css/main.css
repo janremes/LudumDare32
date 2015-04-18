@@ -15,11 +15,51 @@ html, body {
 div.marqueeleft1 { text-align: left; }
 div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 
-#svg-map {
+
+
+#wrapper {
 
     display: block;
-    width: auto;
+    
+
+    /* width: 100%; */
+
+
+}
+
+
+#canvas {
+
+    display: block;
+    
+
+    width: 800px;
     height: 640px;
-    margin: 20px auto;
     text-align: center;
+    
+
+    margin: 20px auto;
+}
+
+
+#news {
+   // background: red;
+    width:80%;
+    height:30px;
+    /* display: block; */
+    position: relative;
+    bottom: 60px;
+    left: 15px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#news-scrolling {
+  position: absolute;
+  color:white;
+  font-size: 17px;
+ // padding-right: 80px;
+  z-index: -1;
+  overflow: hidden;
+  white-space: nowrap;
 }
