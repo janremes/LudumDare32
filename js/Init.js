@@ -92,9 +92,11 @@ function InitGame()
     function updateMenu(country, element) {
         
         console.log('updating menu' + country);
-
-        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young*200}, 500);
-        svgMenu.select('#pomer_happy_stary').animate({width:  country.popularity.old*200}, 500);
+        $(svgMenu.select('#popularity-old tspan').node).text(Math.round(country.popularity.old * 100) + '%');
+        $(svgMenu.select('#popularity-young tspan').node).text(Math.round(country.popularity.young * 100) + '%');
+        
+        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young*193}, 500);
+        svgMenu.select('#pomer_happy_stary').animate({width:  country.popularity.old*193}, 500);
     }
 
     gameState = new GameState(countries);
