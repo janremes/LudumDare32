@@ -42,7 +42,7 @@ function InitGame()
             throw new Error("country with id " + id + " not found");
         }
         var newCountry = new Country(element); 
-        var newManager = new CountryManager(newCountry);
+        var newManager = new CountryManager(newCountry, element);
         countries.push(newCountry);
         managers.push(newManager);
         
