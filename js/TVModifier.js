@@ -18,7 +18,7 @@ TVModifier.prototype = {
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
-        countryEffect.increasePopularity(new PopVector(0.1,0.2), "TV");            
+        countryEffect.increasePopularity(constants.tvEffect, "TV");            
         return countryEffect;
     }
 };
@@ -27,6 +27,7 @@ TVModifier.prototype = {
 define(function(require){
     require("GameStateEffect");
     require("CountryEffect");
+    require("Constants");
     ;
     return function(){
         return TVModifier;

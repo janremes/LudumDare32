@@ -1,7 +1,7 @@
 function Country()
 {
     this.popularity = new PopVector(0.3,0.3);
-    this.populationSize = new PopVector(1000 + Math.round(Math.random() * 10000),1000 + Math.round(Math.random() * 10000));
+    this.populationSize = new PopVector(10,10);
     this.modifiers = [new TVModifier(this)];
     this.tvIndex = 0;
     this.lastTurnEffect = new CountryEffect();
@@ -29,7 +29,7 @@ Country.prototype = {
     
     calculateNeighbourPopularityChange : function(neighbour)
     {
-        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(0.2);
+        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(constants.neighbourPopularityInfluence);
         return change;
     },
 
@@ -75,7 +75,7 @@ Country.prototype = {
         
         if(this.neighboursPlayer)
         {
-            countryEffect.decreasePopularity(new PopVector(-1,-1), "Fears you");
+            countryEffect.decreasePopularity(new PopVector(constants.neighbourPopularityInfluence,constants.neighbourPopularityInfluence), "Fears you");
         }
         
         return countryEffect;
@@ -111,6 +111,7 @@ define(function(require){
     require("CountryEffect");
     require("GameStateEffect");
     require("TVModifier");
+    require("Constants");
     
     return function(){
         return Country;

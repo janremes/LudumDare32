@@ -31,15 +31,16 @@ CountryEffect.prototype = {
     
     apply : function(country)
     {
-        var input = this.influence.subtract(0.3).multiply(2);
-        var targetPopularity = input.divide((input.transform(Math.abs).add(1))).add(1).divide(2);
-        var coeffOld = 3, coeffNew = 1;
+        var input = this.influence.subtract(constants.influenceOffset).multiply(constants.influenceSteepness);
+        var targetPopularity = input.divide((input.transform(Math.abs).add(1))).add(1).divide(2); //transform from [-1, 1] to [0, 1]
+        var coeffOld = constants.oldInfluenceCoeff, coeffNew = constants.newInfluenceCoeff;
         country.popularity = (country.popularity.multiply(coeffOld).add(targetPopularity.multiply(coeffNew))).divide(coeffOld + coeffNew);
     }
 };
 
 define(function(require){
    require("PopVector");
+   require("Constants");
    // ;
     return function(){
         return CountryEffect;
