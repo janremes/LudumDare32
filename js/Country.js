@@ -3,6 +3,7 @@ function Country()
     this.popularity = new PopVector(0.3,0.3);
     this.populationSize = new PopVector(1000 + Math.round(Math.random() * 10000),1000 + Math.round(Math.random() * 10000));
     this.modifiers = [new TVModifier(this)];
+    this.tvIndex = 0;
     this.lastTurnEffect = new CountryEffect();
 }
 

@@ -20,6 +20,8 @@ function InitGame()
 
     var elm = document.getElementById('svg-map').contentDocument;
 
+    var svgMenu = Snap(document.getElementById('svg-nav'));
+
     var mapsvgdoc = null;
 
     try {
@@ -56,17 +58,22 @@ function InitGame()
     managers.map(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
             manager.onClick();
+            updateMenu(manager.country,manager.svgElement);
+        
         });
     });
+    
+    
+    function updateMenu(country,element) {
+        
+        
+    }
 
     gameState = new GameState(countries);
 
-
-
-
-
     elm.getElementById("next_button").addEventListener("mousedown", function () {
 
+        console.log('next clicked');
 
         var effect = gameState.getTurnEndEffect();
 
@@ -100,7 +107,7 @@ function InitGame()
 
 }
 
-require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee'],
+require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee','snap.svg-min'],
         function ($, Country, CountryManager, GameState) {
             InitGame();
         });

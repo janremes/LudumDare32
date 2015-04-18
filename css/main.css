@@ -31,7 +31,7 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 #canvas {
 
     display: block;
-    
+    position:relative;
 
     width: 800px;
     height: 640px;
@@ -62,4 +62,15 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
   z-index: -1;
   overflow: hidden;
   white-space: nowrap;
+}
+
+
+
+#menu-nav {
+    
+    position: absolute;
+    bottom:60px;
+    display: block;
+    right:0px;
+    
 }
