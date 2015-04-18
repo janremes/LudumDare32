@@ -1,3 +1,7 @@
+define(
+"Country",["GameStateEffect"]
+, function(GameStateEffect)
+{
 
 
 function Country()
@@ -17,9 +21,14 @@ Country.prototype = {
     turnEnd: function()
     {
         this.popularity -= this.popularity * 0.1;
-        this.modifiers.forEach(function(){
-           modifier.apply(this); 
+
+        var upkeep = 0;
+        this.modifiers.forEach(function(modifier){
+            upkeep += modifier.upkeep;
+            modifier.apply(this); 
         });
+        
+        return new GameStateEffect(-upkeep);
     },
     
     addModifier : function(modifier)
@@ -37,3 +46,6 @@ Country.prototype = {
         this.modifiers.splice(index, 1);
     }
 };
+
+return Country;
+});

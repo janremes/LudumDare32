@@ -13,6 +13,7 @@ require.config({
     }
 });
 
+var gameState;
 
 function InitGame()
 {    
@@ -50,13 +51,16 @@ function InitGame()
         
         element.addEventListener("mousedown", function() {newManager.onClick();});
     }
+    
+    gameState = new GameState(countries);
 
-
+    elm.addEventListener("mousedown", function() {gameState.turnEnd();});
+  
     console.log("window loaded");
 
 }
 
 require(['jquery', 'Country', 'CountryManager','GameState'],
-function   ($, a, b,c) {
+function   ($, Country, CountryManager,GameState) {
     InitGame();
 });
