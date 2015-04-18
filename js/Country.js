@@ -1,9 +1,9 @@
 function Country()
 {
-    this.popularity = 0.3;
-    this.happiness = 0.5;
-    this.modifiers = new Array();
-    this.lastTurnEffect = new Array();
+    this.popularity = new PopVector(0.3,0.3);
+    this.populationSize = new PopVector(1000 + Math.round(Math.random() * 10000),1000 + Math.round(Math.random() * 10000));
+    this.modifiers = [new TVModifier(this)];
+    this.lastTurnEffect = new CountryEffect();
 }
 
 
@@ -25,7 +25,10 @@ Country.prototype = {
     {
         var countryEffect = new CountryEffect();
         this.modifiers.forEach(function(modifier){
-            countryEffect.add(modifier.getTurnEndCountryEffect()); 
+            if(modifier.enabled)
+            {                
+                countryEffect.add(modifier.getTurnEndCountryEffect()); 
+            }
         });
         
         return countryEffect;
@@ -50,12 +53,18 @@ Country.prototype = {
             throw new Error("Modifier not found");
         }
         this.modifiers.splice(index, 1);
+    },
+    getOverallPopularity : function()
+    {
+        return (this.popularity.young * this.populationSize.young + this.popularity.old * this.populationSize.old) / (this.populationSize.young + this.populationSize.old);
     }
 };
 
 define(function(require){
-    var dep1 = require("CountryEffect"), tl = require("GameStateEffect")
-    ;
+    require("CountryEffect");
+    require("GameStateEffect");
+    require("TVModifier");
+    
     return function(){
         return Country;
     };});

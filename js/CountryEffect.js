@@ -1,43 +1,45 @@
 function CountryEffect()
 {
-    this.popularity = 0;
+    this.influence = new PopVector();
     //this.happiness = 0;
-    this.popularityIncreaseSources = new Array();
-    this.popularityDecreaseSources = new Array();
+    this.positiveInfluence = new Array();
+    this.negativeInfluence = new Array();
+    
+    this.popularityEffect;
 }
 
 CountryEffect.prototype = {
     constructor : CountryEffect,     
     increasePopularity : function(amount, source)
     {
-        this.popularity += amount;
-        this.popularityIncreaseSources.push({amount : amount, source : source});
+        this.influence = this.influence.add(amount);
+        this.positiveInfluence.push({amount : amount, source : source});
     },
     
     decreasePopularity : function(amount, source)
     {
-        this.popularity -= amount;
-        this.popularityDecreaseSources.push({amount : amount, source : source});
+        this.influence.subtract(amount);
+        this.negativeInfluence.push({amount : amount, source : source});
     },
     
     add : function(otherEffect)
     {
-        this.popularity += otherEffect.popularity;
-        this.popularityIncreaseSources.concat(otherEffect.popularityIncreaseSources);
-        this.popularityDecreaseSources.concat(otherEffect.popularityDecreaseSources);
+        this.influence = this.influence.add(otherEffect.influence);
+        this.positiveInfluence.concat(otherEffect.popularityIncreaseSources);
+        this.negativeInfluence.concat(otherEffect.popularityDecreaseSources);
     },
     
     apply : function(country)
     {
-        var input = 2 * (this.popularity - 0.3);
-        var targetPopularity = input / (1 + Math.abs(input));
-        var coeffOld = 2, coeffNew = 1;
-        country.popularity = (country.popularity * coeffOld + targetPopularity * coeffNew) / (coeffOld + coeffNew);
+        var input = this.influence.subtract(0.3).multiply(2);
+        var targetPopularity = input.divide((input.transform(Math.abs).add(1))).add(1).divide(2);
+        var coeffOld = 3, coeffNew = 1;
+        country.popularity = (country.popularity.multiply(coeffOld).add(targetPopularity.multiply(coeffNew))).divide(coeffOld + coeffNew);
     }
 };
 
 define(function(require){
-   // var dep1 = require("CountryEffect"), tl = require("GameStateEffect")
+   require("PopVector");
    // ;
     return function(){
         return CountryEffect;

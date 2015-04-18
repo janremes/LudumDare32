@@ -15,7 +15,7 @@ CountryManager.prototype = {
     
     updateVisual : function()
     {
-        var magnitude = Math.round( 255 * this.country.popularity ); 
+        var magnitude = Math.round( 255 * this.country.getOverallPopularity()); 
         var color = "rgb(" + magnitude + ",0," + magnitude + ")";
         TweenLite.to(this.svgElement, 2, {fill: color});        
     }

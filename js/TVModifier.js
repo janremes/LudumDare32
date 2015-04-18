@@ -3,6 +3,7 @@ function TVModifier(country)
     this.upkeep = 1000;
     this.cost = 3000;
     this.country = country;
+    this.enabled = true;
 }
 
 TVModifier.prototype = {
@@ -17,7 +18,7 @@ TVModifier.prototype = {
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
-        countryEffect.increasePopularity(0.2, "TV");
+        countryEffect.increasePopularity(new PopVector(0.1,0.2), "TV");            
         return countryEffect;
     }
 };
