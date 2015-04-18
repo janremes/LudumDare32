@@ -73,10 +73,12 @@ function InitGame()
         countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
         for(var j = 0; j < countryData[i].neighbours.length; j++)
         {
-            countries[i].neighbours.push[countries[j]];
+            countries[i].neighbouringCountries.push[countries[j]];
         }
-        countries[i].populationSize = countryData.popSize;
-        countries[i].popularity = countryData.popularity;
+        countries[i].populationSize = countryData[i].popSize;
+        countries[i].popularity = countryData[i].popularity;
+        countries[i].id = i + 1;
+        managers[i].updateVisual();
     }
 
     managers.map(function (manager) {

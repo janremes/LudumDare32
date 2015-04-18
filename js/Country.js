@@ -17,7 +17,10 @@ Country.prototype = {
     {
         var gameEffect = new GameStateEffect();
         this.modifiers.forEach(function(modifier){
-            gameEffect.add(modifier.getTurnEndGameEffect()); 
+            if(modifier.enabled)
+            {
+                gameEffect.add(modifier.getTurnEndGameEffect());                 
+            }
         });
         
         return gameEffect;
@@ -26,7 +29,7 @@ Country.prototype = {
     
     calculateNeighbourPopularityChange : function(neighbour)
     {
-        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(0.1);
+        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(0.2);
         return change;
     },
 
