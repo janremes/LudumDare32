@@ -19,9 +19,9 @@ $(window).bind('load', function() {
 
   var countryIds = ['moje_zeme'];
 
-  for (int i = 1; i < 10 ; i++) {
+  for (var i = 1; i < 10 ; i++) {
 
-    countryIds.append('zeme'+i);
+    countryIds[countryIds.length] = 'zeme'+i;
   }
 
 
