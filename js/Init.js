@@ -61,7 +61,12 @@ function InitGame()
 
     gameState = new GameState(countries);
 
-    elm.addEventListener("mousedown", function() {gameState.turnEnd();});
+    elm.addEventListener("mousedown", function() {
+        gameState.turnEnd();
+        managers.forEach(function(m) {
+            m.updateVisual();
+        });
+    });
   
     console.log("window loaded");
 

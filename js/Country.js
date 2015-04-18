@@ -3,35 +3,38 @@ function Country()
     this.popularity = 0.3;
     this.happiness = 0.5;
     this.modifiers = new Array();
+    this.lastTurnEffect = new Array();
 }
-
-
-define(
-"Country",["GameStateEffect"]
-, function(GameStateEffect)
-{
-
 
 
 Country.prototype = {
     constructor : Country,     
-    increasePopularity : function(fraction)
+    
+    getTurnEndGameEffect : function()
     {
-        this.popularity += ((1 - this.popularity) * fraction); 
+        var gameEffect = new GameStateEffect();
+        this.modifiers.forEach(function(modifier){
+            gameEffect.add(modifier.getTurnEndGameEffect()); 
+        });
+        
+        return gameEffect;
+        
+    },
+
+    getTurnEndCountryEffect : function()
+    {
+        var countryEffect = new CountryEffect();
+        this.modifiers.forEach(function(modifier){
+            countryEffect.add(modifier.getTurnEndCountryEffect()); 
+        });
+        
+        return countryEffect;
+        
     },
     
     turnEnd: function()
     {
-        this.popularity -= this.popularity * 0.1;
-
-        var upkeep = 0;
-        var outerThis = this;
-        this.modifiers.forEach(function(modifier){
-            upkeep += modifier.upkeep;
-            modifier.apply(outerThis); 
-        });
-        
-        return new GameStateEffect(-upkeep);
+        this.getTurnEndCountryEffect().apply(this);
     },
     
     addModifier : function(modifier)
@@ -50,5 +53,9 @@ Country.prototype = {
     }
 };
 
-return Country;
-});
+define(function(require){
+    var dep1 = require("CountryEffect"), tl = require("GameStateEffect")
+    ;
+    return function(){
+        return Country;
+    };});

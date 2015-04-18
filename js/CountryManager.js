@@ -10,9 +10,7 @@ CountryManager.prototype = {
     
     onClick : function ()
     {
-        this.country.increasePopularity(0.1);      
         this.country.addModifier(new TVModifier());
-        this.updateVisual();
     },
     
     updateVisual : function()

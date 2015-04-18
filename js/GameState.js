@@ -8,19 +8,31 @@ function GameState(countries)
 //    }
     this.money = 10000;
     this.incomePerTurn = 5000;
+    this.lastTurnEndEffect = new GameStateEffect();
 };
 
 GameState.prototype = {
     constructor:GameState,
 
-    turnEnd : function ()
+    getTurnEndEffect : function()
     {
+        var totalEffect = new GameStateEffect(0);
+        totalEffect.addIncome(this.incomePerTurn, "Home Income");
         for(i = 0; i < this.countries.length; i++)
         {
-            var effect = this.countries[i].turnEnd();
-            this.money += effect.money;
+            var effect = this.countries[i].getTurnEndGameEffect();
+            totalEffect.add(effect);
         }
-        this.money += this.incomePerTurn;
+        return totalEffect;
+    },
+
+    turnEnd : function ()
+    {
+        this.countries.forEach(function(c){
+            c.turnEnd();
+        });
+        this.lastTurnEndEffect = this.getTurnEndEffect();
+        this.lastTurnEndEffect.apply(this);
     }
 };            
 
