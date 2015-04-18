@@ -19,6 +19,8 @@
       
     loadResources: function () {
       this.load.image('player', 'assets/player.png');
+      this.load.image('map', 'assets/mapa_test2.png');
+      this.load.image('map_svg', 'assets/Mapa.svg');
       this.load.bitmapFont('minecraftia', 'assets/minecraftia.png', 'assets/minecraftia.xml');
     },
 
