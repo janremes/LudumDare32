@@ -61,6 +61,7 @@ function InitGame()
 
     gameState = new GameState(countries);
 
+
     //elm.addEventListener("mousedown", function() {gameState.turnEnd();});
 
     // add dummy scrolling text
@@ -70,6 +71,13 @@ function InitGame()
 
     elm.getElementById("tspan8647").textContent = "99999";
     
+    elm.addEventListener("mousedown", function() {
+        gameState.turnEnd();
+        managers.forEach(function(m) {
+            m.updateVisual();
+        });
+    });
+  
     console.log("window loaded");
 
 }
