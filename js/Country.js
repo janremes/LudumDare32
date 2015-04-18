@@ -1,15 +1,17 @@
-define(
-"Country",["GameStateEffect"]
-, function(GameStateEffect)
-{
-
-
 function Country()
 {
     this.popularity = 0.3;
     this.happiness = 0.5;
     this.modifiers = new Array();
 }
+
+
+define(
+"Country",["GameStateEffect"]
+, function(GameStateEffect)
+{
+
+
 
 Country.prototype = {
     constructor : Country,     

@@ -38,20 +38,27 @@ function InitGame()
         var id = 'zeme' + i;
         countryIds.push(id);
         var element = elm.getElementById(id);
+        
         if(!element)
         {
             throw new Error("country with id " + id + " not found");
         }
+        
         var newCountry = new Country(element); 
         var newManager = new CountryManager(newCountry, element);
         countries.push(newCountry);
         managers.push(newManager);
         
         element.country = newCountry;
-        
-        element.addEventListener("mousedown", function() {newManager.onClick();});
+
     }
     
+    managers.map(function(manager) {    
+        manager.svgElement.addEventListener("mousedown", function() {
+            manager.onClick();
+        });
+    });
+
     gameState = new GameState(countries);
 
     elm.addEventListener("mousedown", function() {gameState.turnEnd();});
