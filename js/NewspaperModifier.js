@@ -1,24 +1,24 @@
-function TVModifier(country)
+function NewspaperModifier(country)
 {
-    this.upkeep = constants.tvUpkeep;
-    this.cost = constants.tvCost;
+    this.upkeep = constants.newspaperUpkeep;
+    this.cost = constants.newspaperCost;
     this.country = country;
     this.enabled = false;
 }
 
-TVModifier.prototype = {
-    constructor : TVModifier,
+NewspaperModifier.prototype = {
+    constructor : NewspaperModifier,
     getTurnEndGameEffect : function()
     {
         var effect = new GameStateEffect();
-        effect.addSpending(this.upkeep, "TV");
+        effect.addSpending(this.upkeep, "Newspaper");
         return effect;
         
     },
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
-        countryEffect.increasePopularity(constants.tvEffect, "TV");            
+        countryEffect.increasePopularity(constants.newspaperEffect, "Newspaper");            
         return countryEffect;
     }
 };
@@ -30,5 +30,5 @@ define(function(require){
     require("Constants");
     ;
     return function(){
-        return TVModifier;
+        return NewspaperModifier;
 }});
