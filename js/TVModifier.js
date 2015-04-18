@@ -3,7 +3,7 @@ function TVModifier(country)
     this.upkeep = 1000;
     this.cost = 3000;
     this.country = country;
-    this.enabled = true;
+    this.enabled = false;
 }
 
 TVModifier.prototype = {

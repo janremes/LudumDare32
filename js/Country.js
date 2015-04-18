@@ -5,6 +5,8 @@ function Country()
     this.modifiers = [new TVModifier(this)];
     this.tvIndex = 0;
     this.lastTurnEffect = new CountryEffect();
+    this.neighboursPlayer = false;
+    this.neighbouringCountries = [];
 }
 
 
@@ -15,11 +17,20 @@ Country.prototype = {
     {
         var gameEffect = new GameStateEffect();
         this.modifiers.forEach(function(modifier){
-            gameEffect.add(modifier.getTurnEndGameEffect()); 
+            if(modifier.enabled)
+            {
+                gameEffect.add(modifier.getTurnEndGameEffect());                 
+            }
         });
         
         return gameEffect;
         
+    },
+    
+    calculateNeighbourPopularityChange : function(neighbour)
+    {
+        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(0.2);
+        return change;
     },
 
     getTurnEndCountryEffect : function()
@@ -31,6 +42,41 @@ Country.prototype = {
                 countryEffect.add(modifier.getTurnEndCountryEffect()); 
             }
         });
+        
+        var changeSource = "Neighbour";
+        
+        this.neighbouringCountries.forEach(function(neighbour, outerThis){
+            var neighbourEffect = this.calculateNeighbourPopularityChange(neighbour);
+            if(neighbourEffect.young >= 0)
+            {
+                if(neighbourEffect.old >= 0)
+                {
+                    countryEffect.increasePopularity(neighbourEffect, changeSource);
+                }
+                else
+                {
+                    countryEffect.increasePopularity(new PopVector(neighbourEffect.young, 0), changeSource);
+                    countryEffect.decreasePopularity(new PopVector(0, -neighbourEffect.old), changeSource);
+                }
+            }
+            else
+            {
+                if(neighbourEffect.old >= 0)
+                {
+                    countryEffect.decreasePopularity(new PopVector(-neighbourEffect.young, 0), changeSource);
+                    countryEffect.increasePopularity(new PopVector(0, neighbourEffect.old), changeSource);
+                }
+                else
+                {
+                    countryEffect.decreasePopularity(neighbourEffect.multiply(-1), changeSource);
+                }                
+            }
+        });
+        
+        if(this.neighboursPlayer)
+        {
+            countryEffect.decreasePopularity(new PopVector(-1,-1), "Fears you");
+        }
         
         return countryEffect;
         
