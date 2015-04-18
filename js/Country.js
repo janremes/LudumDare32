@@ -1,6 +1,7 @@
-function Country(svgElement)
+
+
+function Country()
 {
-    this.svgElement = svgElement;
     this.popularity = 0.3;
     this.happiness = 0.5;
     this.modifiers = new Array();

@@ -1,0 +1,28 @@
+//require("gsap/TweenLite.min", function()
+//{
+//    
+//});
+
+function CountryManager(country, svgElement)
+{
+    this.country = country;
+    this.svgElement = svgElement;
+    
+};
+
+CountryManager.prototype = {
+    constructor:CountryManager,
+    
+    onClick : function ()
+    {
+        this.country.increasePopularity(0.1);      
+        this.updateVisual();
+    },
+    
+    updateVisual : function()
+    {
+        var magnitude = Math.round( 255 * this.country.popularity ); 
+        var color = "rgb(" + magnitude + ",0," + magnitude + ")";
+        TweenLite.to(this.svgElement, 2, {fill: color});        
+    }
+};
