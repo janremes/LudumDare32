@@ -8,8 +8,13 @@ html, body {
     height: 100%;
     overflow: hidden;
     background: #000;
-    font-family: "Verdana", Geneva, sans-serif;
+     font-family: 'HeadlineTwo' !important;
 }
+
+
+ svg{
+        font-family: HeadlineTwo !important;
+    }
 
 
 div.marqueeleft1 { text-align: left; }
@@ -33,7 +38,7 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     display: block;
     position:relative;
 
-    width: 800px;
+    width: 840px;
     height: 640px;
     text-align: center;
     
