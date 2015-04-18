@@ -54,6 +54,30 @@ function InitGame()
         element.country = newCountry;
 
     }
+    
+    countryData = [
+      //1 
+      { neighbours: [2,6],          neighboursPlayer : true,  popSize : new PopVector(15, 10), popularity : new PopVector(0.10,0.10) },
+      { neighbours: [1,3,6,7],      neighboursPlayer : true,  popSize : new PopVector( 5,  4), popularity : new PopVector(0.20,0.08) },
+      { neighbours: [2,8,7],        neighboursPlayer : true,  popSize : new PopVector( 4,  7), popularity : new PopVector(0.05,0.23) },
+      //4
+      { neighbours: [5,6],          neighboursPlayer : false, popSize : new PopVector( 3,  7), popularity : new PopVector(0.60,0.55) },
+      { neighbours: [4,6],          neighboursPlayer : false, popSize : new PopVector( 5,  2), popularity : new PopVector(0.40,0.55) },
+      { neighbours: [4,5,1,2,7],    neighboursPlayer : false, popSize : new PopVector(25, 16), popularity : new PopVector(0.50,0.45) },
+      //7
+      { neighbours: [6,2,3,8,9],    neighboursPlayer : false, popSize : new PopVector(12,  3), popularity : new PopVector(0.40,0.30) },
+      { neighbours: [7,3],          neighboursPlayer : false, popSize : new PopVector( 2,  9), popularity : new PopVector(0.20,0.60) },
+      { neighbours: [7],            neighboursPlayer : false, popSize : new PopVector(14,  2), popularity : new PopVector(0.60,0.50) }
+    ];
+    for (var i = 0; i < countryData.length; i++) {
+        countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
+        for(var j = 0; j < countryData[i].neighbours.length; j++)
+        {
+            countries[i].neighbours.push[countries[j]];
+        }
+        countries[i].populationSize = countryData.popSize;
+        countries[i].popularity = countryData.popularity;
+    }
 
     managers.map(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
