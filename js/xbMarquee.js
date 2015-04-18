@@ -28,15 +28,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-document.writeln('<style type="text/css">');
-document.writeln('	div.marqueecenter1 { text-align: center; }');
-document.writeln('	div.marqueecenter2 { margin-left: auto; margin-right: auto; }');
-document.writeln('	div.marqueeleft1 { text-align: left; }');
-document.writeln('	div.marqueeleft2 { margin-left: 0; margin-right: auto; }');
-document.writeln('	div.marqueeright1 { text-align: right; }');
-document.writeln('	div.marqueeright2 { margin-left: auto; margin-right: 0; }');
-document.writeln('</style>');
-
 function xbMarquee(id, height, width, scrollAmount, scrollDelay, direction, behavior, html)
 {
   this.id            = id;

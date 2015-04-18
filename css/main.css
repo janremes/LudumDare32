@@ -1,21 +1,25 @@
 * {
-  -webkit-user-select: none;
-  user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: "Verdana", Geneva, sans-serif;
 }
 
 
+div.marqueeleft1 { text-align: left; }
+div.marqueeleft2 { margin-left: 0; margin-right: auto; }
+
 #svg-map {
-  
-  display: block;
-  width: auto;
-  height: 640px;
-  margin: 20px auto;
-  text-align: center;
+
+    display: block;
+    width: auto;
+    height: 640px;
+    margin: 20px auto;
+    text-align: center;
 }

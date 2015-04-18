@@ -16,8 +16,8 @@ require.config({
 var gameState;
 
 function InitGame()
-{    
-    
+{
+
     var elm = document.getElementById('svg-map').contentDocument;
 
     var mapsvgdoc = null;
@@ -38,36 +38,43 @@ function InitGame()
         var id = 'zeme' + i;
         countryIds.push(id);
         var element = elm.getElementById(id);
-        
-        if(!element)
+
+        if (!element)
         {
             throw new Error("country with id " + id + " not found");
         }
-        
-        var newCountry = new Country(element); 
+
+        var newCountry = new Country(element);
         var newManager = new CountryManager(newCountry, element);
         countries.push(newCountry);
         managers.push(newManager);
-        
+
         element.country = newCountry;
 
     }
-    
-    managers.map(function(manager) {    
-        manager.svgElement.addEventListener("mousedown", function() {
+
+    managers.map(function (manager) {
+        manager.svgElement.addEventListener("mousedown", function () {
             manager.onClick();
         });
     });
 
     gameState = new GameState(countries);
 
-    elm.addEventListener("mousedown", function() {gameState.turnEnd();});
-  
+    //elm.addEventListener("mousedown", function() {gameState.turnEnd();});
+
+    // add dummy scrolling text
+
+
+    //elm.$("#tspan8647").text("hello");
+
+    elm.getElementById("tspan8647").textContent = "99999";
+    
     console.log("window loaded");
 
 }
 
-require(['jquery', 'Country', 'CountryManager','GameState'],
-function   ($, Country, CountryManager,GameState) {
-    InitGame();
-});
+require(['jquery', 'Country', 'CountryManager', 'GameState', 'xbMarquee'],
+        function ($, Country, CountryManager, GameState) {
+            InitGame();
+        });
