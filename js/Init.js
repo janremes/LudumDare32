@@ -211,8 +211,8 @@ function InitGame()
 
     $("#menu-nav-tooltip").hide();
 
-    var elm = document.getElementById('svg-map').contentDocument;
-    var elmNav = document.getElementById('svg-nav').contentDocument;
+    var elm = document.getElementById('svg-map');
+    var elmNav = document.getElementById('svg-nav');
 
     svgMenu = Snap('#svg-nav');
     svgMap = Snap('#svg-map');
@@ -565,4 +565,12 @@ function InitGame()
 
 }
 
-InitGame();
+
+var mySVGsToInject = document.querySelectorAll('img.inject-me');
+// Trigger the injection
+SVGInjector(mySVGsToInject, {}, function (totalSVGsInjected) {
+  // Callback after all SVGs are injected
+  console.log('We injected ' + totalSVGsInjected + ' SVG(s)!');
+    InitGame();
+  
+});

@@ -23,7 +23,7 @@
    .script("jquery-2.1.3.min.js")
    //.script("jquery.svg.js")
    .script("snap.svg-min.js")
-//   .script("gsap/TweenLite.min.js")
+   .script("svg-injector.min.js")
    .script("gsap/TweenMax.min.js")
    .script("gsap/TimelineMax.min.js")
    .script("xbMarquee.js").wait()
@@ -41,18 +41,20 @@
   <div id="wrapper">
       
       <div id="canvas">
-          <object id="svg-map" data="assets/Mapa_nova.svg" width="800" height="640" type="image/svg+xml">
+          <!-- <object id="svg-map" data="assets/Mapa_nova.svg" width="800" height="640" type="image/svg+xml"></object> -->
+          <img id="svg-map" data-src="assets/Mapa_nova.svg"  class="inject-me">
               
               
            
-          </object>  
+           
          <div id="news">
              <div id="news-scrolling"></div>
          </div>
           
           <div id="menu-nav">
-               <object id="svg-nav" data="assets/nabidkaOREZ.svg" width="300" height="230" type="image/svg+xml">
-               </object>
+               <!--<object id="svg-nav" data="assets/nabidkaOREZ.svg" width="300" height="230" type="image/svg+xml"></object>-->
+               <img id="svg-nav" data-src="assets/nabidkaOREZ.svg" class="inject-me">
+               
           </div>
           <div id="menu-nav-tooltip">
               <h3 id="tooltip-name">TV</h3>
