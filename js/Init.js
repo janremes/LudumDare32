@@ -200,8 +200,8 @@ function InitGame()
         $(svgMenu.select('#popularity-old tspan').node).text(Math.round(country.popularity.old * 100) + '%');
         $(svgMenu.select('#popularity-young tspan').node).text(Math.round(country.popularity.young * 100) + '%');
 
-        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young * 193}, 500);
-        svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.old * 193}, 500);
+        svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.young * 193}, 500);
+        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.old * 193}, 500);
 
         infoTableWrapper.innerHTML = CreateTableForCountry(country);
     }
@@ -221,68 +221,64 @@ function InitGame()
 
 
 
-    // own country clicked
 
+
+    // own country clicked
     
     elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
 
+     
 
         console.log('clicked own country');
 
     });
 
-        //BUTTONS
+    //BUTTONS
 
     elmNav.getElementById('tv').addEventListener("mousedown", function () {
 
-
         var country = selectedCountryManager.country;
-
         var enabled = !country.modifiers[country.tvIndex].enabled;
 
         country.modifiers[country.tvIndex].enabled = enabled;
 
-
         var svgTv = svgMap.select("#" + country.elmId + "_tv");
 
         elementEnabled(enabled, svgTv);
+        showTooltip(country);
 
         console.log('enable' + enabled + ' tv for ' + country.countryId);
+
 
     });
 
     elmNav.getElementById('radio').addEventListener("mousedown", function () {
 
-
         var country = selectedCountryManager.country;
-
         var enabled = !country.modifiers[country.radioIndex].enabled;
 
         country.modifiers[country.radioIndex].enabled = enabled;
 
-
         var svgTv = svgMap.select("#" + country.elmId + "_radio");
 
         elementEnabled(enabled, svgTv);
+
         console.log('enable' + enabled + ' radio for ' + country.countryId);
 
     });
 
     elmNav.getElementById('noviny').addEventListener("mousedown", function () {
 
-
         var country = selectedCountryManager.country;
-
         var enabled = !country.modifiers[country.newspaperIndex].enabled;
 
         country.modifiers[country.newspaperIndex].enabled = enabled;
 
-
         var svgTv = svgMap.select("#" + country.elmId + "_noviny");
 
         elementEnabled(enabled, svgTv);
+        showTooltip(country);
         console.log('enable' + enabled + ' tv for ' + country.countryId);
-
     });
 
     elmNav.getElementById('net').addEventListener("mousedown", function () {
@@ -311,9 +307,15 @@ function InitGame()
         }
     }
 
+    function showTooltip(country) {
+         $( "#menu-nav-tooltip").show();
+    }
 
+    $( "#tooltip-dismiss" ).click(function() {
 
+        $( "#menu-nav-tooltip").hide();
 
+    });
 
     elmNav.getElementById('tv').addEventListener("mouseover", function () {
 
