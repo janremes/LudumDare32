@@ -11,7 +11,7 @@ function Constants()
     this.oldInfluenceCoeff = 3;
     this.newInfluenceCoeff = 1;
     
-    this.neighbourInfluenceCoeff = 0.2;
+    this.neighbourInfluenceCoeff = 0.5;
     this.negbourPlayerInfluence = 0.6;
     
     //modifiers
@@ -32,7 +32,7 @@ function Constants()
     this.webUpkeep = 200;
     
     //messages
-    this.minimalNeighbourInfluenceForMessage = 0.1;
+    this.minimalNeighbourInfluenceForMessage = 0.05;
 }
 
 var constants;

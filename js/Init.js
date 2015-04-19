@@ -486,7 +486,9 @@ function InitGame()
 
         if ((gameState.money + effect.money) < 0) {
 
-            alert('You have no money');
+            DisplayEventInfo("You don't have enough money.", 
+            "You do not have enough money to support all media you are running this month. \n\
+             You need to shutdown some of your operations.", [{name : "Close", func: HideEventInfo}]);
             return;
         }
 

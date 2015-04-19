@@ -170,6 +170,7 @@ Country.prototype = {
         {
             messages.push(this.name + ": Protest against Myland's acquisition of Otherland.");
             messages.push("Thousands march against Myland in " + this.name + ".");
+            messages.push("Government in " + this.name + " will never support unlawful occupation of Otherland.");
         }
         if(this.getOverallPopularity() < 0.25)
         {
