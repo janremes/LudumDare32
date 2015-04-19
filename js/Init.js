@@ -29,6 +29,7 @@ var infoTableWrapper;
 var infoTableContent;
 
 var dialogBox;
+var selectedModifier;
 
 
 function UpdateVisual()
@@ -38,6 +39,14 @@ function UpdateVisual()
     });
 
     moneyElement.text(gameState.money);
+
+    countries.forEach(function(country){
+        country.modifiers.forEach(function(modif){
+
+           elementEnabled(modif.enabled,svgMap.select(modif.elementId));
+
+        });
+    });
 }
 
 function DisplayEventInfo(title,text, buttons)
@@ -64,6 +73,15 @@ function HideEventInfo()
     $(dialogBox).css("display", "none");    
     $("#inactiveOverlay").css("display","none");
 }
+
+function elementEnabled(enabled, element) {
+        if (enabled) {
+            element.attr({display: ''});
+        } else {
+
+            element.attr({display: 'none'});
+        }
+    }
 
 function PopVectorCells(popVector, percent)
 {
@@ -175,6 +193,9 @@ function ResetGameState()
 function InitGame()
 {
 
+
+    $( "#menu-nav-tooltip").hide();
+
     var elm = document.getElementById('svg-map').contentDocument;
     var elmNav = document.getElementById('svg-nav').contentDocument;
 
@@ -207,7 +228,11 @@ function InitGame()
             throw new Error("country with id " + id + " not found");
         }
 
-        var modifNames = ['tv', 'radio', 'noviny', 'net'];
+         var newCountry = new Country(element);
+        newCountry.elmId = id;
+
+
+        var modifNames = ['tv', 'radio', 'net', 'noviny'];
 
         for (var j = 0; j < modifNames.length; j++) {
             var tvId = id + "_" + modifNames[j];
@@ -219,11 +244,12 @@ function InitGame()
 
                 svgTv.attr({display: 'none'});
             }
+
+            newCountry.modifiers[j].elementId = "#" + tvId;
         }
 
 
-        var newCountry = new Country(element);
-        newCountry.elmId = id;
+      
         var newManager = new CountryManager(newCountry, element);
         countries.push(newCountry);
         managers.push(newManager);
@@ -318,16 +344,16 @@ function InitGame()
     elmNav.getElementById('tv').addEventListener("mousedown", function () {
 
         var country = selectedCountryManager.country;
-        var enabled = !country.modifiers[country.tvIndex].enabled;
 
-        country.modifiers[country.tvIndex].enabled = enabled;
+        var modifId =  "#" + country.elmId + "_tv";
 
-        var svgTv = svgMap.select("#" + country.elmId + "_tv");
+        var svgTv = svgMap.select(modifId);
 
-        elementEnabled(enabled, svgTv);
-        showTooltip(country);
+        country.modifiers[country.tvIndex].elementId = modifId;
 
-        console.log('enable' + enabled + ' tv for ' + country.countryId);
+        showTooltip(country.modifiers[country.tvIndex],svgTv);
+
+       // console.log('enable' + enabled + ' tv for ' + country.countryId);
 
 
     });
@@ -335,30 +361,31 @@ function InitGame()
     elmNav.getElementById('radio').addEventListener("mousedown", function () {
 
         var country = selectedCountryManager.country;
-        var enabled = !country.modifiers[country.radioIndex].enabled;
+     
+        var modifId =  "#" + country.elmId + "_radio";
 
-        country.modifiers[country.radioIndex].enabled = enabled;
+        var svgTv = svgMap.select(modifId);
 
-        var svgTv = svgMap.select("#" + country.elmId + "_radio");
+        country.modifiers[country.radioIndex].elementId = modifId;
 
-        elementEnabled(enabled, svgTv);
-
-        console.log('enable' + enabled + ' radio for ' + country.countryId);
+        showTooltip(country.modifiers[country.radioIndex],svgTv);
+       // console.log('enable' + enabled + ' radio for ' + country.countryId);
 
     });
 
     elmNav.getElementById('noviny').addEventListener("mousedown", function () {
 
         var country = selectedCountryManager.country;
-        var enabled = !country.modifiers[country.newspaperIndex].enabled;
+     
+         var modifId =  "#" + country.elmId + "_noviny";
 
-        country.modifiers[country.newspaperIndex].enabled = enabled;
+        var svgTv = svgMap.select(modifId);
 
-        var svgTv = svgMap.select("#" + country.elmId + "_noviny");
+        country.modifiers[country.newspaperIndex].elementId = modifId;
 
-        elementEnabled(enabled, svgTv);
-        showTooltip(country);
-        console.log('enable' + enabled + ' tv for ' + country.countryId);
+        showTooltip(country.modifiers[country.newspaperIndex],svgTv);
+
+      //  console.log('enable' + enabled + ' tv for ' + country.countryId);
     });
 
     elmNav.getElementById('net').addEventListener("mousedown", function () {
@@ -366,35 +393,63 @@ function InitGame()
 
         var country = selectedCountryManager.country;
 
-        var enabled = !country.modifiers[country.webIndex].enabled;
+        var modifId =  "#" + country.elmId + "_net";
 
-        country.modifiers[country.webIndex].enabled = enabled;
+        var svgTv = svgMap.select(modifId);
 
-        var svgTv = svgMap.select("#" + country.elmId + "_net");
+        country.modifiers[country.webIndex].elementId = modifId;
+        
+        showTooltip(country.modifiers[country.webIndex],svgTv);
 
-        elementEnabled(enabled, svgTv);
-
-        console.log('enable' + enabled + ' net for ' + country.countryId);
+      //  console.log('enable' + enabled + ' net for ' + country.countryId);
 
     });
 
-    function elementEnabled(enabled, element) {
-        if (enabled) {
-            element.attr({display: ''});
-        } else {
 
-            element.attr({display: 'none'});
-        }
-    }
 
-    function showTooltip(country) {
+    function showTooltip(modifier,element) {
+        console.log('showing tooltip');
          $( "#menu-nav-tooltip").show();
+
+         $("#tooltip-price").text(modifier.cost.toString());
+         $("#tooltip-price-turn").text(modifier.upkeep);
+
+         selectedModifier = modifier;
+
+         if (modifier.enabled) {
+            $( "#tooltip-buy" ).text('Shutdown');
+         } else {
+            $( "#tooltip-buy" ).text('Buy');
+         }
     }
 
     $( "#tooltip-dismiss" ).click(function() {
 
         $( "#menu-nav-tooltip").hide();
 
+    });
+
+      $( "#tooltip-buy" ).click(function() {
+
+        $( "#menu-nav-tooltip").hide();
+
+
+        
+
+        selectedModifier.enabled = !selectedModifier.enabled;
+
+        //toggle visibility of selectd element on map
+      //  elementEnabled(selectedModifier.enabled,svgMap.select(selectedModifier.elementId))
+        
+        if (selectedModifier.enabled) {
+            gameState.money -= selectedModifier.cost;
+        }
+        
+        
+        console.log('game state money '+ gameState.money );
+        
+        
+        UpdateVisual();
     });
 
     elmNav.getElementById('tv').addEventListener("mouseover", function () {
