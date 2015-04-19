@@ -8,7 +8,7 @@ function GameState(countries)
 //    }
     this.money = 10000;
     this.incomePerTurn = 5000;
-    this.lastTurnEndEffect = new GameStateEffect();
+    this.lastTurnEffect = new GameStateEffect();
 };
 
 GameState.prototype = {
@@ -31,8 +31,8 @@ GameState.prototype = {
         this.countries.forEach(function(c){
             c.turnEnd();
         });
-        this.lastTurnEndEffect = this.getTurnEndEffect();
-        this.lastTurnEndEffect.apply(this);
+        this.lastTurnEffect = this.getTurnEndEffect();
+        this.lastTurnEffect.apply(this);
     }
 };            
 

@@ -14,7 +14,9 @@
 //});
 
 var gameState;
-var managers;
+var svgMenu;
+var svgMap;
+
 var moneyElement;
 var myCountryId;
 var countryIds;
@@ -74,13 +76,34 @@ function CreateTableForCountry(country)
     return table + '</tbody></table>';
 }
 
+function CreateTableForBudget()
+{
+    var table = '<table><thead><tr><th colspan="2">Budget</th></tr>\n\
+        </thead><tbody>';
+    var effect = gameState.lastTurnEffect;
+    
+    effect.incomeData.forEach(function (income){
+       table += '<tr class="positive"><td class="sourceColumn">' + income.source + 
+               '</td><td class="numberColumn">' + income.amount + '</td></tr>';
+    });
+    
+    effect.spendingData.forEach(function (spending){
+       table += '<tr class="negative"><td class="sourceColumn">' + spending.source + 
+               '</td><td class="numberColumn">' + (-spending.amount) + '</td></tr>';
+    });    
+    
+    table += '<tr class="total"><td>Total</td><td>' + effect.money +'</td></tr>';
+        
+    return table + '</tbody></table>';
+}
+
 function InitGame()
 {
 
     var elm = document.getElementById('svg-map').contentDocument;
 
-    var svgMenu = Snap('#svg-nav');
-    var svgMap = Snap('#svg-map');
+    svgMenu = Snap('#svg-nav');
+    svgMap = Snap('#svg-map');
 
     var mapsvgdoc = null;
 

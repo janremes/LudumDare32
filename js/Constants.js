@@ -25,6 +25,8 @@ function Constants()
     this.webEffect = new PopVector(0.15, 0.05);
     this.webCost = 2000;
     this.webUpkeep = 200;
+    
+    //GUI
 }
 
 var constants;
