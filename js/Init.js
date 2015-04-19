@@ -17,7 +17,6 @@ var gameState;
 var svgMenu;
 var svgMap;
 
-var moneyElement;
 var myCountryId;
 var countryIds;
 var countries;
@@ -31,6 +30,11 @@ var infoTableContent;
 var dialogBox;
 var selectedModifier;
 
+var monthLeftElement;
+var supportingCountriesElement;
+var moneyElement;
+var spendingElement;
+var incomeElement;
 
 function UpdateVisual()
 {
@@ -39,6 +43,12 @@ function UpdateVisual()
     });
 
     moneyElement.text(gameState.money);
+    incomeElement.text(gameState.incomePerTurn);
+    var turnEndEffect = gameState.getTurnEndEffect(); 
+    spendingElement.text(-(turnEndEffect.money - gameState.incomePerTurn));
+    
+    supportingCountriesElement.text(gameState.getSupportingCountries().length);
+    monthLeftElement.text(gameState.turnsLeft);
 
     countries.forEach(function (country) {
         country.modifiers.forEach(function (modif) {
@@ -47,6 +57,8 @@ function UpdateVisual()
 
         });
     });
+    
+    
 }
 
 function DisplayEventInfo(title,text, buttons)
@@ -104,7 +116,7 @@ function PopVectorCells(popVector, percent)
 function CreateTableForCountry(country)
 {
     var table = '<table><thead><tr><th colspan="3">Influence - ' + country.name + '</th></tr>\n\
-        <tr><th>Source</th><th>Young</th><th>Old</th></tr>\n\
+        <tr><th>Source</th><th><img src="assets/young.png" alt="Young"></th><th><img src="assets/old.png" alt="Old"></th></tr>\n\
         </thead><tbody>';
     var effect = country.getTurnEndCountryEffect();
 
@@ -128,10 +140,10 @@ function CreateTableForCountry(country)
 
 function CreateTableForBudget(effect)
 {
-    var table = '<table><thead><tr><th colspan="2">Budget</th></tr>\n\
+    var table = '<table><thead><tr><th colspan="2">Myland Propaganda Budget</th></tr>\n\
         </thead><tbody>';
 
-    var effect = gameState.lastTurnEffect;
+    var effect = gameState.getTurnEndEffect();
 
     effect.incomeData.forEach(function (income) {
         table += '<tr class="positive"><td class="sourceColumn">' + income.source +
@@ -314,8 +326,11 @@ function InitGame()
    ResetGameState();
 
     moneyElement = $(svgMap.select('#suma_text tspan').node);
+    spendingElement = $(svgMap.select('#suma_text-1 tspan').node);
+    incomeElement = $(svgMap.select('#suma_text-0 tspan').node);
 
-
+    monthLeftElement = $(svgMap.select('#suma_text-0-3 tspan').node);
+    supportingCountriesElement = $(svgMap.select('#suma_text-1-3 tspan').node);
     
     infoTableWrapper = $.parseHTML('<div id="infoTableWrapper"><h3>Detailed info</h3></div>')[0];
     infoTableContent = $.parseHTML('<div id="infoTableContent"></div>')[0];
@@ -414,7 +429,8 @@ function InitGame()
         console.log('showing tooltip');
         $("#menu-nav-tooltip").show();
 
-        $("#tooltip-price").text(modifier.cost.toString());
+        $("#tooltip-name").text(modifier.nameLong); // + ' in ' + modifier.country.name);
+        $("#tooltip-price").text(modifier.enabled ? "Owned" : modifier.cost.toString());
         $("#tooltip-price-turn").text(modifier.upkeep);
 
         selectedModifier = modifier;

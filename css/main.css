@@ -90,12 +90,30 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     position: absolute;
     right:30px;
     bottom:300px;
-    height :50px;
-    width:120px;
+    height :80px;
+    width:140px;
     background: white;
     text-align: center;
     padding:5px;
 
+}
+
+#tooltip-dismiss
+{
+    display:block;
+    text-decoration:none;
+    position:absolute;
+    right:0;
+    top:0;
+    padding-top: 5px;
+    padding-right:5px;
+    
+}
+
+#tooltip-name
+{
+  margin-top:5px;
+  margin-bottom: 3px;
 }
 
 #newspaper-overview {
