@@ -21,20 +21,24 @@ var countryIds;
 var countries;
 var managers;
 
+var selectedCountry;
+var selectedCountryManager;
+
 function UpdateVisual()
 {
-        managers.forEach(function (m) {
-            m.updateVisual();
-        });
-        
-        moneyElement.text(gameState.money);    
+    managers.forEach(function (m) {
+        m.updateVisual();
+    });
+
+    moneyElement.text(gameState.money);
 }
 
 function InitGame()
 {
 
     var elm = document.getElementById('svg-map').contentDocument;
-
+    var elmNav = document.getElementById('svg-nav').contentDocument;
+    
     var svgMenu = Snap('#svg-nav');
     var svgMap = Snap('#svg-map');
 
@@ -80,6 +84,7 @@ function InitGame()
 
 
         var newCountry = new Country(element);
+        newCountry.countryId = id;
         var newManager = new CountryManager(newCountry, element);
         countries.push(newCountry);
         managers.push(newManager);
@@ -115,11 +120,34 @@ function InitGame()
 
     managers.forEach(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
+            selectedCountryManager = manager;
             manager.onClick();
             updateMenu(manager.country, manager.svgElement);
+            updateCountryStroke(manager.svgElement);
         });
     });
 
+
+    function updateCountryStroke(element) {
+
+        managers.forEach(function (manager) {
+            
+            var strokeColor = "#FFFFFF";
+            var snapCountryElm = Snap(manager.svgElement);
+               
+            if (manager.svgElement === element) {
+                strokeColor = "#40E0D0";
+            }
+            
+            snapCountryElm.attr({
+                stroke: strokeColor,
+                strokeWidth: 2, 
+            });
+
+        });
+
+
+    }
 
     function updateMenu(country, element) {
 
@@ -139,6 +167,30 @@ function InitGame()
     moneyElement = $(svgMap.select('#suma_text tspan').node);
 
     UpdateVisual();
+
+
+
+
+    //BUTTONS
+    
+    elmNav.getElementById('tv').addEventListener("mousedown", function () {
+        
+        
+        var country = selectedCountryManager.country;
+        
+        
+        country.modifiers[country.tvIndex].enabled = true;
+        
+        
+        console.log('Enabling tv for ' + country.countryId);
+        
+    });
+    
+    
+     elmNav.getElementById('tv').addEventListener("mouseover", function () {
+        
+        
+    });
 
     elm.getElementById("next_button").addEventListener("mousedown", function () {
 

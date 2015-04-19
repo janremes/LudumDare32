@@ -1,5 +1,8 @@
 function Country()
 {
+    
+    this.countryId = "";
+    
     this.popularity = new PopVector(0.3,0.3);
     this.populationSize = new PopVector(10,10);
     
