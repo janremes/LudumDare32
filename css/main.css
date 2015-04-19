@@ -68,10 +68,11 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
   z-index: -1;
   overflow: hidden;
   white-space: nowrap;
-  text-align:left;
+  text-align:left; 
   padding-left:5%;
+  letter-spacing: 2px;
 }
-
+ 
 
 
 #menu-nav {

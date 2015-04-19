@@ -465,6 +465,8 @@ function InitGame()
         UpdateVisual();
     });
     
+    $("#newspaper-overview").hide();
+
     $("#newspaper-overview").click(function(){
        
          $("#newspaper-overview").hide(500);
