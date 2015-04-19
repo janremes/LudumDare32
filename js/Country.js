@@ -4,6 +4,7 @@ function Country()
     this.elmId = '';
     
     this.popularity = new PopVector(0.3,0.3);
+    this.lastTurnPopularity = new PopVector();
     this.populationSize = new PopVector(10,10);
     
     this.modifiers = [
@@ -26,8 +27,16 @@ function Country()
 
 
 Country.prototype = {
-    constructor : Country,     
-    
+    constructor : Country, 
+    reset : function()
+    {
+        this.modifiers.forEach(function(m){ m.enabled = false; });
+    },
+    setPopularity : function(popularity)
+    {
+      this.lastTurnPopularity = this.popularity;
+      this.popularity = popularity;  
+    },
     getTurnEndGameEffect : function()
     {
         var gameEffect = new GameStateEffect();
@@ -124,6 +133,51 @@ Country.prototype = {
     getOverallPopularity : function()
     {
         return (this.popularity.young * this.populationSize.young + this.popularity.old * this.populationSize.old) / (this.populationSize.young + this.populationSize.old);
+    },
+    getCandidateMessages : function()
+    {
+        messages = [];
+        var outerThis = this;
+        this.neighbouringCountries.forEach(function(neighbour){
+           var influence = outerThis.calculateNeighbourPopularityChange(neighbour);
+           if(influence.old > constants.minimalNeighbourInfluenceForMessage)
+           {
+               messages.push('Citizens of ' + outerThis.name + ' influenced by pro-Myland sentiments in ' + neighbour.name + '.');
+           }
+           if(influence.old < -constants.minimalNeighbourInfluenceForMessage)
+           {
+               messages.push('Anti-Myland views spread from ' + neighbour.name + ' to ' + outerThis.name + '.');               
+           }
+        });
+        
+        this.modifiers.forEach(function(m){
+           if(m.enabled)
+           {               
+               messages.push('Myland-backed ' + m.name + ' in ' + outerThis.name + ' accused of spreading "Dangerous propaganda"');
+           }
+        });
+        
+        if(this.getOverallPopularity() > 0.55)
+        {            
+            messages.push("Pro-Myland rallies in " + this.name +".");
+            messages.push(this.name + " officials will support Myland in upcoming summit.");
+        } 
+        if(this.getOverallPopularity() > 0.6)
+        {
+            messages.push(this.name + ": violent strike in support of Myland.");
+        }
+        if(this.getOverallPopularity() < 0.40)
+        {
+            messages.push(this.name + ": Protest against Myland's acquisition of Otherland.");
+            messages.push("Thousands march against Myland in " + this.name + ".");
+        }
+        if(this.getOverallPopularity() < 0.25)
+        {
+            messages.push(this.name + ": Riots during anti-Myland protests.");
+            messages.push("Anti-Myland protests in " + this.name + " turned into bloodshed.");
+        }
+        
+        return messages;
     }
 };
 //

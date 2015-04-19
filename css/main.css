@@ -60,13 +60,15 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 }
 
 #news-scrolling {
-  position: absolute;
+  position: relative;
   color:white;
-  font-size: 17px;
+  font-size: 20px;
  // padding-right: 80px;
   z-index: -1;
   overflow: hidden;
   white-space: nowrap;
+  text-align:left;
+  padding-left:5%;
 }
 
 
@@ -138,4 +140,9 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     background-color: #000000;
     opacity: 0.5;
     display:none;
+}
+
+#dialogButtonContainer
+{
+    margin-top:10px;
 }

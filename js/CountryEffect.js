@@ -47,7 +47,7 @@ CountryEffect.prototype = {
     apply : function()
     {
         this.updateDerivedStats();
-        this.country.popularity = this.country.popularity.add(this.popularityEffect);
+        this.country.setPopularity(this.country.popularity.add(this.popularityEffect));
     }
 };
 

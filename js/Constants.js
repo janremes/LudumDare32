@@ -12,7 +12,7 @@ function Constants()
     this.newInfluenceCoeff = 1;
     
     this.neighbourInfluenceCoeff = 0.2;
-    this.negbourPlayerInfluence = 1;
+    this.negbourPlayerInfluence = 0.6;
     
     //modifiers
     this.tvEffect = new PopVector(0.2,0.4);
@@ -31,7 +31,8 @@ function Constants()
     this.webCost = 2000;
     this.webUpkeep = 200;
     
-    //GUI
+    //messages
+    this.minimalNeighbourInfluenceForMessage = 0.1;
 }
 
 var constants;

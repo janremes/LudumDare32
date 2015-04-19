@@ -42,7 +42,7 @@ function UpdateVisual()
 
 function DisplayEventInfo(title,text, buttons)
 {
-    var html = '<div id="dialogTitle">' + title + '</div><div id="dialogText">' + text + "</div>";
+    var html = '<h2 id="dialogTitle">' + title + '</h2><div id="dialogText">' + text + "</div>";
     dialogBox.innerHTML = html;
     if(buttons)
     {
@@ -128,6 +128,16 @@ function CreateTableForBudget(effect)
     return table + '</tbody></table>';
 }
 
+function ShowRandomMessage()
+{
+    var messages = gameState.getCandidateMessages();
+    var msgIndex = Math.floor(Math.random() * messages.length * 1024) >> 10;
+    var messageToShow = messages[msgIndex];
+
+    $('#news-scrolling').text(messageToShow);
+
+}
+
 function ResetGameState()
 {
    //neighbours are 1-based indices (as in map)
@@ -146,6 +156,7 @@ function ResetGameState()
         {name: 'Fairhall', neighbours: [7], neighboursPlayer: false, popSize: new PopVector(14, 2), popularity: new PopVector(0.60, 0.50)}
     ];
     for (var i = 0; i < countryData.length; i++) {
+        countries[i].reset();
         countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
         for (var j = 0; j < countryData[i].neighbours.length; j++)
         {
@@ -153,6 +164,7 @@ function ResetGameState()
         }
         countries[i].populationSize = countryData[i].popSize;
         countries[i].popularity = countryData[i].popularity;
+        countries[i].lastTurnPopularity = countryData[i].popularity;
         countries[i].id = i + 1;
         countries[i].name = countryData[i].name;
     }   
@@ -426,13 +438,15 @@ function InitGame()
 
     var scrollText = document.getElementById('news-scrolling');
 
-    tween = TweenMax.to(scrollText, 5.5, {left: "650px", repeat: 100, yoyo: false, onRepeat: onRepeat, repeatDelay: 3.0, ease: Linear.easeInOut});
-    var count = 0;
-    function onRepeat() {
-        count++;
-
-        $('#news-scrolling').text('hello ' + count);
-    }
+    ShowRandomMessage();
+    $(scrollText).css("top", "200%");
+    textTimeline = new TimelineMax({delay:1, repeat:-1, repeatDelay: 0.3, onRepeat:ShowRandomMessage});
+    textTimeline.add(TweenMax.to(
+            scrollText, 0.5, 
+            {top: "0%", ease: Linear.easeInOut}));
+    textTimeline.add(TweenMax.to(
+            scrollText, 0.5, 
+            {top: "-200%", ease: Linear.easeInOut, delay: 5}));
 
     console.log("window loaded");
 

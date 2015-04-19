@@ -55,6 +55,22 @@ GameState.prototype = {
     isLose : function()
     {
         return this.turnsLeft <= 0 && !this.isWin();
+    },
+    getCandidateMessages : function()
+    {
+        messages = [];
+        this.countries.forEach(function(c){
+           messages = messages.concat(c.getCandidateMessages()); 
+        });
+        
+        if(this.lastTurnEffect.money < 0)
+        {
+            messages.push('Myland allegedly overspends on propaganda.');
+            messages.push('Unexpectedly high propaganda spending in Myland.');
+            messages.push('Analytics: Myland\'s spending on propaganda is unsustainable.');
+        }
+        
+        return messages;
     }
 };            
 
