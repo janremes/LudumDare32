@@ -6,8 +6,8 @@ function Constants()
     this.oldInfluenceCoeff = 3;
     this.newInfluenceCoeff = 1;
     
-    this.neighbourPopularityInfluence = 0.2;
-    this.negbourPlayerPopularityEffect = 1;
+    this.neighbourInfluenceCoeff = 0.2;
+    this.negbourPlayerInfluence = 1;
     
     //modifiers
     this.tvEffect = new PopVector(0.1,0.2);

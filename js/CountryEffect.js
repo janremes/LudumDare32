@@ -5,7 +5,7 @@ function CountryEffect()
     this.positiveInfluence = new Array();
     this.negativeInfluence = new Array();
     
-    this.popularityEffect;
+    this.popularityEffect = new PopVector();
 }
 
 CountryEffect.prototype = {
@@ -18,7 +18,7 @@ CountryEffect.prototype = {
     
     decreasePopularity : function(amount, source)
     {
-        this.influence.subtract(amount);
+        this.influence = this.influence.subtract(amount);
         this.negativeInfluence.push({amount : amount, source : source});
     },
     
@@ -31,10 +31,12 @@ CountryEffect.prototype = {
     
     apply : function(country)
     {
-        var input = this.influence.subtract(constants.influenceOffset).multiply(constants.influenceSteepness);
+        var input = this.influence.add(constants.influenceOffset).multiply(constants.influenceSteepness);
         var targetPopularity = input.divide((input.transform(Math.abs).add(1))).add(1).divide(2); //transform from [-1, 1] to [0, 1]
         var coeffOld = constants.oldInfluenceCoeff, coeffNew = constants.newInfluenceCoeff;
+        var oldPopularity = country.popularity;
         country.popularity = (country.popularity.multiply(coeffOld).add(targetPopularity.multiply(coeffNew))).divide(coeffOld + coeffNew);
+        this.popularityEffect = country.popularity.subtract(oldPopularity);
     }
 };
 

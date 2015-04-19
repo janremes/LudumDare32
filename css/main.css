@@ -79,3 +79,13 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     right:0px;
     
 }
+
+#infoTableWrapper
+{
+    position:absolute;
+    top:0px;
+    right:0px;
+    display:block;
+    background-color: white;
+    color:black;
+}
