@@ -1,8 +1,6 @@
 function Country()
 {
-    
-    this.countryId = "";
-    
+    this.id = -1;
     this.popularity = new PopVector(0.3,0.3);
     this.populationSize = new PopVector(10,10);
     
@@ -15,6 +13,8 @@ function Country()
     this.lastTurnEffect = new CountryEffect();
     this.neighboursPlayer = false;
     this.neighbouringCountries = [];
+    
+    this.name = '<unknown>';
 }
 
 
@@ -37,7 +37,7 @@ Country.prototype = {
     
     calculateNeighbourPopularityChange : function(neighbour)
     {
-        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(constants.neighbourPopularityInfluence);
+        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(constants.neighbourInfluenceCoeff);
         return change;
     },
 
@@ -51,10 +51,11 @@ Country.prototype = {
             }
         });
         
-        var changeSource = "Neighbour";
         
-        this.neighbouringCountries.forEach(function(neighbour, outerThis){
-            var neighbourEffect = this.calculateNeighbourPopularityChange(neighbour);
+        var outerThis = this;
+        this.neighbouringCountries.forEach(function(neighbour){
+            var changeSource = "Neighbour - " + neighbour.name;
+            var neighbourEffect = outerThis.calculateNeighbourPopularityChange(neighbour);
             if(neighbourEffect.young >= 0)
             {
                 if(neighbourEffect.old >= 0)
@@ -83,7 +84,7 @@ Country.prototype = {
         
         if(this.neighboursPlayer)
         {
-            countryEffect.decreasePopularity(new PopVector(constants.neighbourPopularityInfluence,constants.neighbourPopularityInfluence), "Fears you");
+            countryEffect.decreasePopularity(new PopVector(constants.negbourPlayerInfluence,constants.negbourPlayerInfluence), "Fears you");
         }
         
         return countryEffect;
@@ -92,7 +93,8 @@ Country.prototype = {
     
     turnEnd: function()
     {
-        this.getTurnEndCountryEffect().apply(this);
+        this.lastTurnEffect = this.getTurnEndCountryEffect();
+        this.lastTurnEffect.apply(this);
     },
     
     addModifier : function(modifier)
