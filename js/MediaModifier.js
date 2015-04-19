@@ -6,6 +6,7 @@ function MediaModifier(country, cost, upkeep, effect, name)
     this.effect = effect;
     this.country = country;
     this.enabled = false;
+    this.elementId = "";
 }
 
 MediaModifier.prototype = {
