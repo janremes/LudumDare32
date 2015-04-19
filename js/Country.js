@@ -6,7 +6,12 @@ function Country()
     this.popularity = new PopVector(0.3,0.3);
     this.populationSize = new PopVector(10,10);
     
-    this.modifiers = [new TVModifier(this), new RadioModifier(this), new WebModifier(this), new NewspaperModifier(this)];
+    this.modifiers = [
+        new MediaModifier(this, constants.tvCost, constants.tvUpkeep, constants.tvEffect, "TV"), 
+        new MediaModifier(this, constants.radioCost, constants.radioUpkeep, constants.radioEffect, "Radio"), 
+        new MediaModifier(this, constants.webCost, constants.webUpkeep, constants.webEffect, "Web"), 
+        new MediaModifier(this, constants.newspaperCost, constants.newspaperUpkeep, constants.newspaperEffect, "Newspaper")
+        ];
     this.tvIndex = 0;
     this.radioIndex = 1;
     this.webIndex = 2;
@@ -39,13 +44,16 @@ Country.prototype = {
     
     calculateNeighbourPopularityChange : function(neighbour)
     {
-        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(constants.neighbourInfluenceCoeff);
+        var populationCoeff = (neighbour.populationSize.young + neighbour.populationSize.old) / (this.populationSize.young + this.populationSize.old);
+        var change = new PopVector(neighbour.getOverallPopularity(), neighbour.getOverallPopularity())
+                .subtract(0.5).multiply(constants.neighbourInfluenceCoeff * populationCoeff);
         return change;
     },
 
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
+        countryEffect.decreasePopularity(constants.influenceNegativeBias, "Bias");
         this.modifiers.forEach(function(modifier){
             if(modifier.enabled)
             {                

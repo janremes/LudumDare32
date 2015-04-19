@@ -14,7 +14,9 @@
 //});
 
 var gameState;
-var managers;
+var svgMenu;
+var svgMap;
+
 var moneyElement;
 var myCountryId;
 var countryIds;
@@ -55,7 +57,7 @@ function PopVectorCells(popVector, percent)
 
 function CreateTableForCountry(country)
 {
-    var table = '<table><thead><tr><th colspan="3">Influence</th></tr>\n\
+    var table = '<table><thead><tr><th colspan="3">Influence - ' + country.name + '</th></tr>\n\
         <tr><th>Source</th><th>Young</th><th>Old</th></tr>\n\
         </thead><tbody>';
     var effect = country.lastTurnEffect;
@@ -77,14 +79,35 @@ function CreateTableForCountry(country)
     return table + '</tbody></table>';
 }
 
+function CreateTableForBudget()
+{
+    var table = '<table><thead><tr><th colspan="2">Budget</th></tr>\n\
+        </thead><tbody>';
+    var effect = gameState.lastTurnEffect;
+    
+    effect.incomeData.forEach(function (income){
+       table += '<tr class="positive"><td class="sourceColumn">' + income.source + 
+               '</td><td class="numberColumn">' + income.amount + '</td></tr>';
+    });
+    
+    effect.spendingData.forEach(function (spending){
+       table += '<tr class="negative"><td class="sourceColumn">' + spending.source + 
+               '</td><td class="numberColumn">' + (-spending.amount) + '</td></tr>';
+    });    
+    
+    table += '<tr class="total"><td>Total</td><td>' + effect.money +'</td></tr>';
+        
+    return table + '</tbody></table>';
+}
+
 function InitGame()
 {
 
     var elm = document.getElementById('svg-map').contentDocument;
     var elmNav = document.getElementById('svg-nav').contentDocument;
 
-    var svgMenu = Snap('#svg-nav');
-    var svgMap = Snap('#svg-map');
+    svgMenu = Snap('#svg-nav');
+    svgMap = Snap('#svg-map');
 
     var mapsvgdoc = null;
 
@@ -137,6 +160,7 @@ function InitGame()
 
     }
 
+    //neighbours are 1-based indices (as in map)
     countryData = [
         //1 
         {name: 'Crystallville', neighbours: [2, 6], neighboursPlayer: true, popSize: new PopVector(15, 10), popularity: new PopVector(0.10, 0.10)},
@@ -155,7 +179,7 @@ function InitGame()
         countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
         for (var j = 0; j < countryData[i].neighbours.length; j++)
         {
-            countries[i].neighbouringCountries.push(countries[j]);
+            countries[i].neighbouringCountries.push(countries[countryData[i].neighbours[j] - 1]);
         }
         countries[i].populationSize = countryData[i].popSize;
         countries[i].popularity = countryData[i].popularity;
@@ -210,6 +234,8 @@ function InitGame()
 
 
     gameState = new GameState(countries);
+
+    gameState.turnEnd();
 
     moneyElement = $(svgMap.select('#suma_text tspan').node);
 

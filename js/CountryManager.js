@@ -10,13 +10,11 @@ CountryManager.prototype = {
     
     onClick : function ()
     {
-        this.country.addModifier(new TVModifier());
     },
     
     updateVisual : function()
     {
-        var magnitude = Math.round( 255 * this.country.getOverallPopularity()); 
-        var color = "rgb(" + magnitude + ",0," + magnitude + ")";
+        var color = guiConstants.getColorForPopularity(this.country.getOverallPopularity()).getCSSHexadecimalRGB();
         TweenLite.to(this.svgElement, 2, {fill: color});        
     }
 };
