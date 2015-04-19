@@ -63,7 +63,8 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
   position: relative;
   color:white;
   font-size: 20px;
- // padding-right: 80px;
+
+
   z-index: -1;
   overflow: hidden;
   white-space: nowrap;
@@ -94,6 +95,25 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     text-align: center;
     padding:5px;
 
+}
+
+#newspaper-overview {
+    width:100%;
+    height:100%;
+    background: red;
+    position:absolute;
+    top:0px;
+    z-index: 2;
+
+}
+
+#newspaper-title {
+    text-align: center;
+    font-family: "Times New Roman", serif;
+    font-size: 45px;
+    position:absolute;
+    top:43%;
+    width:100%;
 }
 
 #menu-nav-tooltip b{
