@@ -13,7 +13,7 @@ MediaModifier.prototype = {
     getTurnEndGameEffect : function()
     {
         var effect = new GameStateEffect();
-        effect.addSpending(this.upkeep, this.name + " - " + country.name);
+        effect.addSpending(this.upkeep, this.name + " - " + this.country.name);
         return effect;
         
     },

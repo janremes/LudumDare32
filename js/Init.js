@@ -57,7 +57,7 @@ function PopVectorCells(popVector, percent)
 
 function CreateTableForCountry(country)
 {
-    var table = '<table><thead><tr><th colspan="3">Influence</th></tr>\n\
+    var table = '<table><thead><tr><th colspan="3">Influence - ' + country.name + '</th></tr>\n\
         <tr><th>Source</th><th>Young</th><th>Old</th></tr>\n\
         </thead><tbody>';
     var effect = country.lastTurnEffect;
@@ -160,6 +160,7 @@ function InitGame()
 
     }
 
+    //neighbours are 1-based indices (as in map)
     countryData = [
         //1 
         {name: 'Crystallville', neighbours: [2, 6], neighboursPlayer: true, popSize: new PopVector(15, 10), popularity: new PopVector(0.10, 0.10)},
@@ -178,7 +179,7 @@ function InitGame()
         countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
         for (var j = 0; j < countryData[i].neighbours.length; j++)
         {
-            countries[i].neighbouringCountries.push(countries[j]);
+            countries[i].neighbouringCountries.push(countries[countryData[i].neighbours[j] - 1]);
         }
         countries[i].populationSize = countryData[i].popSize;
         countries[i].popularity = countryData[i].popularity;
@@ -233,6 +234,8 @@ function InitGame()
 
 
     gameState = new GameState(countries);
+
+    gameState.turnEnd();
 
     moneyElement = $(svgMap.select('#suma_text tspan').node);
 

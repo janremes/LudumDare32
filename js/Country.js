@@ -44,13 +44,16 @@ Country.prototype = {
     
     calculateNeighbourPopularityChange : function(neighbour)
     {
-        var change = new PopVector(neighbour.getOverallPopularity()).subtract(this.popularity).multiply(constants.neighbourInfluenceCoeff);
+        var populationCoeff = (neighbour.populationSize.young + neighbour.populationSize.old) / (this.populationSize.young + this.populationSize.old);
+        var change = new PopVector(neighbour.getOverallPopularity(), neighbour.getOverallPopularity())
+                .subtract(0.5).multiply(constants.neighbourInfluenceCoeff * populationCoeff);
         return change;
     },
 
     getTurnEndCountryEffect : function()
     {
         var countryEffect = new CountryEffect();
+        countryEffect.decreasePopularity(constants.influenceNegativeBias, "Bias");
         this.modifiers.forEach(function(modifier){
             if(modifier.enabled)
             {                

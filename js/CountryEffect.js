@@ -25,8 +25,8 @@ CountryEffect.prototype = {
     add : function(otherEffect)
     {
         this.influence = this.influence.add(otherEffect.influence);
-        this.positiveInfluence.concat(otherEffect.popularityIncreaseSources);
-        this.negativeInfluence.concat(otherEffect.popularityDecreaseSources);
+        this.positiveInfluence = this.positiveInfluence.concat(otherEffect.positiveInfluence);
+        this.negativeInfluence = this.negativeInfluence.concat(otherEffect.negativeInfluence);
     },
     
     apply : function(country)

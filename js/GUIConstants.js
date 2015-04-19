@@ -26,14 +26,14 @@ GUIConstants.prototype =
         {
             return this.hateColor;
         }
-        else if (popularity < 0.5)
+        else if (popularity < 0.45)
         {
-            var coeff = (popularity - 0.1) * 2.5;
+            var coeff = (popularity - 0.1) * (100/35);
             return this.mixColor(this.neutralColor, this.hateColor, coeff);            
         }
-        else if (popularity < 0.9)
+        else if (popularity < 0.65)
         {
-            var coeff = (popularity - 0.5) * 2.5;
+            var coeff = (popularity - 0.45) * 4;
             return this.mixColor(this.loveColor, this.neutralColor, coeff);                        
         }
         {
