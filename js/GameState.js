@@ -1,19 +1,18 @@
 function GameState(countries)
 {
     this.countries = countries;
-//    this.countries = new Array();
-//    for(i = 0; i < 9; i++)
-//    {
-//        this.countries[i] = new Country();
-//    }
-    this.money = 10000;
-    this.incomePerTurn = 5000;
-    this.lastTurnEffect = new GameStateEffect();
+    this.reset();
 };
 
 GameState.prototype = {
     constructor:GameState,
-
+    reset : function()
+    {
+        this.money = constants.initialMoney;
+        this.incomePerTurn = constants.initialMoneyPerTurn;
+        this.turnsLeft = constants.numberOfTurns;
+        this.lastTurnEffect = new GameStateEffect();        
+    },
     getTurnEndEffect : function()
     {
         var totalEffect = new GameStateEffect(0);
@@ -33,6 +32,45 @@ GameState.prototype = {
         });
         this.lastTurnEffect = this.getTurnEndEffect();
         this.lastTurnEffect.apply(this);
+        this.turnsLeft--;
+    },
+    
+    getSupportingCountries : function()
+    {
+        var support = [];
+       this.countries.forEach(function(c){
+            if(c.getOverallPopularity() > 0.5)
+            {
+                support.push(c);
+            }
+        });              
+        return support;
+    },
+    
+    isWin : function()
+    {
+        return this.getSupportingCountries().length > this.countries.length / 2;
+    },
+    
+    isLose : function()
+    {
+        return this.turnsLeft <= 0 && !this.isWin();
+    },
+    getCandidateMessages : function()
+    {
+        messages = [];
+        this.countries.forEach(function(c){
+           messages = messages.concat(c.getCandidateMessages()); 
+        });
+        
+        if(this.lastTurnEffect.money < 0)
+        {
+            messages.push('Myland allegedly overspends on propaganda.');
+            messages.push('Unexpectedly high propaganda spending in Myland.');
+            messages.push('Analytics: Myland\'s spending on propaganda is unsustainable.');
+        }
+        
+        return messages;
     }
 };            
 

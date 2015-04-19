@@ -1,5 +1,9 @@
 function Constants()
 {
+    this.numberOfTurns = 10;
+    this.initialMoney = 10000;
+    this.initialMoneyPerTurn = 5000;
+    
     //influence
     this.influenceSteepness = 1;
     this.influenceOffset = 0;
@@ -8,18 +12,16 @@ function Constants()
     this.newInfluenceCoeff = 1;
     
     this.neighbourInfluenceCoeff = 0.2;
-    this.negbourPlayerInfluence = 1;
+    this.negbourPlayerInfluence = 0.6;
     
     //modifiers
     this.tvEffect = new PopVector(0.2,0.4);
     this.tvCost = 3000;
-    //this.tvUpkeep = 1000;
-    this.tvUpkeep = 0;
+    this.tvUpkeep = 1000;
     
     this.newspaperEffect = new PopVector(0.1,0.2);
     this.newspaperCost = 200;
-    //this.newspaperUpkeep = 500;
-    this.newspaperUpkeep = 0;
+    this.newspaperUpkeep = 500;
     
     this.radioEffect = new PopVector(0.1,0.1);
     this.radioCost = 800;
@@ -29,7 +31,8 @@ function Constants()
     this.webCost = 2000;
     this.webUpkeep = 200;
     
-    //GUI
+    //messages
+    this.minimalNeighbourInfluenceForMessage = 0.1;
 }
 
 var constants;
