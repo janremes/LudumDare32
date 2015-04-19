@@ -1,6 +1,8 @@
 function Country()
 {
     this.id = -1;
+    this.elmId = '';
+    
     this.popularity = new PopVector(0.3,0.3);
     this.populationSize = new PopVector(10,10);
     
