@@ -26,6 +26,9 @@ var managers;
 var selectedCountry;
 var selectedCountryManager;
 var infoTableWrapper;
+var infoTableContent;
+
+var dialogBox;
 
 
 function UpdateVisual()
@@ -35,6 +38,31 @@ function UpdateVisual()
     });
 
     moneyElement.text(gameState.money);
+}
+
+function DisplayEventInfo(title,text, buttons)
+{
+    var html = '<div id="dialogTitle">' + title + '</div><div id="dialogText">' + text + "</div>";
+    dialogBox.innerHTML = html;
+    if(buttons)
+    {
+        var buttonContainer = $.parseHTML('<div id="dialogButtonContainer"></div>')[0];
+        buttons.forEach(function(b)
+        {
+           var newButton = $.parseHTML('<button class="dialogButton" type="button">' + b.name + '</button>')[0];
+           newButton.addEventListener("click", b.func);           
+            $(buttonContainer).append(newButton);
+        });
+    }
+    $(dialogBox).append(buttonContainer);
+    $(dialogBox).css("display", "block");
+    $("#inactiveOverlay").css("display","block");
+}
+
+function HideEventInfo()
+{
+    $(dialogBox).css("display", "none");    
+    $("#inactiveOverlay").css("display","none");
 }
 
 function PopVectorCells(popVector, percent)
@@ -100,6 +128,38 @@ function CreateTableForBudget(effect)
     return table + '</tbody></table>';
 }
 
+function ResetGameState()
+{
+   //neighbours are 1-based indices (as in map)
+    countryData = [
+        //1 
+        {name: 'Crystallville', neighbours: [2, 6], neighboursPlayer: true, popSize: new PopVector(15, 10), popularity: new PopVector(0.10, 0.10)},
+        {name: 'Ironmist', neighbours: [1, 3, 6, 7], neighboursPlayer: true, popSize: new PopVector(5, 4), popularity: new PopVector(0.20, 0.08)},
+        {name: 'Greihill', neighbours: [2, 8, 7], neighboursPlayer: true, popSize: new PopVector(4, 7), popularity: new PopVector(0.05, 0.23)},
+        //4
+        {name: 'Southfalcon', neighbours: [5, 6], neighboursPlayer: false, popSize: new PopVector(3, 7), popularity: new PopVector(0.60, 0.55)},
+        {name: 'Newby', neighbours: [4, 6], neighboursPlayer: false, popSize: new PopVector(5, 2), popularity: new PopVector(0.40, 0.55)},
+        {name: 'Wywerbush', neighbours: [4, 5, 1, 2, 7], neighboursPlayer: false, popSize: new PopVector(25, 16), popularity: new PopVector(0.50, 0.45)},
+        //7
+        {name: 'Oldsummer', neighbours: [6, 2, 3, 8, 9], neighboursPlayer: false, popSize: new PopVector(12, 3), popularity: new PopVector(0.40, 0.30)},
+        {name: 'Glassapple', neighbours: [7, 3], neighboursPlayer: false, popSize: new PopVector(2, 9), popularity: new PopVector(0.20, 0.60)},
+        {name: 'Fairhall', neighbours: [7], neighboursPlayer: false, popSize: new PopVector(14, 2), popularity: new PopVector(0.60, 0.50)}
+    ];
+    for (var i = 0; i < countryData.length; i++) {
+        countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
+        for (var j = 0; j < countryData[i].neighbours.length; j++)
+        {
+            countries[i].neighbouringCountries.push(countries[countryData[i].neighbours[j] - 1]);
+        }
+        countries[i].populationSize = countryData[i].popSize;
+        countries[i].popularity = countryData[i].popularity;
+        countries[i].id = i + 1;
+        countries[i].name = countryData[i].name;
+    }   
+    
+    gameState.reset();
+}
+
 function InitGame()
 {
 
@@ -160,33 +220,8 @@ function InitGame()
 
     }
 
-    //neighbours are 1-based indices (as in map)
-    countryData = [
-        //1 
-        {name: 'Crystallville', neighbours: [2, 6], neighboursPlayer: true, popSize: new PopVector(15, 10), popularity: new PopVector(0.10, 0.10)},
-        {name: 'Ironmist', neighbours: [1, 3, 6, 7], neighboursPlayer: true, popSize: new PopVector(5, 4), popularity: new PopVector(0.20, 0.08)},
-        {name: 'Greihill', neighbours: [2, 8, 7], neighboursPlayer: true, popSize: new PopVector(4, 7), popularity: new PopVector(0.05, 0.23)},
-        //4
-        {name: 'Southfalcon', neighbours: [5, 6], neighboursPlayer: false, popSize: new PopVector(3, 7), popularity: new PopVector(0.60, 0.55)},
-        {name: 'Newby', neighbours: [4, 6], neighboursPlayer: false, popSize: new PopVector(5, 2), popularity: new PopVector(0.40, 0.55)},
-        {name: 'Wywerbush', neighbours: [4, 5, 1, 2, 7], neighboursPlayer: false, popSize: new PopVector(25, 16), popularity: new PopVector(0.50, 0.45)},
-        //7
-        {name: 'Oldsummer', neighbours: [6, 2, 3, 8, 9], neighboursPlayer: false, popSize: new PopVector(12, 3), popularity: new PopVector(0.40, 0.30)},
-        {name: 'Glassapple', neighbours: [7, 3], neighboursPlayer: false, popSize: new PopVector(2, 9), popularity: new PopVector(0.20, 0.60)},
-        {name: 'Fairhall', neighbours: [7], neighboursPlayer: false, popSize: new PopVector(14, 2), popularity: new PopVector(0.60, 0.50)}
-    ];
-    for (var i = 0; i < countryData.length; i++) {
-        countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
-        for (var j = 0; j < countryData[i].neighbours.length; j++)
-        {
-            countries[i].neighbouringCountries.push(countries[countryData[i].neighbours[j] - 1]);
-        }
-        countries[i].populationSize = countryData[i].popSize;
-        countries[i].popularity = countryData[i].popularity;
-        countries[i].id = i + 1;
-        countries[i].name = countryData[i].name;
-    }
 
+ 
     managers.forEach(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
             selectedCountryManager = manager;
@@ -227,7 +262,7 @@ function InitGame()
         svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.young * 193}, 500);
         svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.old * 193}, 500);
 
-        infoTableWrapper.innerHTML = CreateTableForCountry(country);
+        infoTableContent.innerHTML = CreateTableForCountry(country);
     }
 
 
@@ -235,13 +270,20 @@ function InitGame()
 
     gameState = new GameState(countries);
 
-    gameState.turnEnd();
+   ResetGameState();
 
     moneyElement = $(svgMap.select('#suma_text tspan').node);
 
 
-    infoTableWrapper = $.parseHTML('<div id="infoTableWrapper"></div>')[0];
+    
+    infoTableWrapper = $.parseHTML('<div id="infoTableWrapper"><h3>Detailed info</h3></div>')[0];
+    infoTableContent = $.parseHTML('<div id="infoTableContent"></div>')[0];
+    $(infoTableWrapper).append(infoTableContent);
     $('#canvas').append(infoTableWrapper);
+
+    dialogBox = $.parseHTML('<div id="dialogBox"></div>')[0];
+    $(dialogBox).css("display","none");
+    $('#canvas').append(dialogBox);
 
     UpdateVisual();
 
@@ -253,7 +295,7 @@ function InitGame()
     
     elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
 
-        infoTableWrapper.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());
+        infoTableContent.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());
         
         console.log('clicked own country');
 
@@ -362,6 +404,20 @@ function InitGame()
 
         gameState.turnEnd();
         UpdateVisual();
+        
+        var restartGameButton = { name : "Restart game", func : function() { 
+                ResetGameState(); 
+                HideEventInfo(); 
+                UpdateVisual();
+            }};
+        if(gameState.isWin())
+        {
+            DisplayEventInfo("You win", "You got support from over half the other countries. The sanctions will not take place.", [restartGameButton]);
+        }
+        else if(gameState.isLose())
+        {
+            DisplayEventInfo("You lose", "You failed to convince majority of the other countries. At the summit, sanctions passed.", [restartGameButton]);            
+        }
     });
 
 

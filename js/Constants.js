@@ -1,5 +1,9 @@
 function Constants()
 {
+    this.numberOfTurns = 10;
+    this.initialMoney = 10000;
+    this.initialMoneyPerTurn = 5000;
+    
     //influence
     this.influenceSteepness = 1;
     this.influenceOffset = 0;
@@ -13,13 +17,11 @@ function Constants()
     //modifiers
     this.tvEffect = new PopVector(0.2,0.4);
     this.tvCost = 3000;
-    //this.tvUpkeep = 1000;
-    this.tvUpkeep = 0;
+    this.tvUpkeep = 1000;
     
     this.newspaperEffect = new PopVector(0.1,0.2);
     this.newspaperCost = 200;
-    //this.newspaperUpkeep = 500;
-    this.newspaperUpkeep = 0;
+    this.newspaperUpkeep = 500;
     
     this.radioEffect = new PopVector(0.1,0.1);
     this.radioCost = 800;
