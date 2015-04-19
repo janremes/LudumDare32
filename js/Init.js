@@ -27,7 +27,7 @@ function UpdateVisual()
             m.updateVisual();
         });
         
-       // moneyElement.text(gameState.money);    
+        moneyElement.text(gameState.money);    
 }
 
 function InitGame()
@@ -136,7 +136,7 @@ function InitGame()
 
     gameState = new GameState(countries);
 
-    //moneyElement = $(svgMenu.select('#suma_text tspan').node);
+    moneyElement = $(svgMap.select('#suma_text tspan').node);
 
     UpdateVisual();
 
