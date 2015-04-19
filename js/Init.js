@@ -269,6 +269,9 @@ function InitGame()
             manager.onClick();
             updateMenu(manager.country, manager.svgElement);
             updateCountryStroke(manager.svgElement);
+
+             $(svgMenu.select('#population-young').node).text(manager.country.populationSize.young + ' mil');
+             $(svgMenu.select('#population-old').node).text(manager.country.populationSize.old + ' mil');
         });
     });
 
