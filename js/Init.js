@@ -60,7 +60,7 @@ function CreateTableForCountry(country)
     var table = '<table><thead><tr><th colspan="3">Influence - ' + country.name + '</th></tr>\n\
         <tr><th>Source</th><th>Young</th><th>Old</th></tr>\n\
         </thead><tbody>';
-    var effect = country.lastTurnEffect;
+    var effect = country.getTurnEndCountryEffect();
 
     effect.positiveInfluence.forEach(function (influence) {
         table += '<tr class="positive"><td class="sourceColumn">' + influence.source +
@@ -73,17 +73,17 @@ function CreateTableForCountry(country)
     });
 
     table += '<tr class="total"><td>Total</td>' + PopVectorCells(effect.influence) + '</tr>';
+    table += '<tr class="previous"><td>Previous turn</td>' + PopVectorCells(country.lastTurnEffect.influence) + '</tr>';
 
-    table += '<tr class="popularity"><td>Popularity change</td>' + PopVectorCells(effect.popularityEffect) + '</tr>';
+    table += '<tr class="popularity"><td>Expected popularity change</td>' + PopVectorCells(effect.popularityEffect) + '</tr>';
 
     return table + '</tbody></table>';
 }
 
-function CreateTableForBudget()
+function CreateTableForBudget(effect)
 {
     var table = '<table><thead><tr><th colspan="2">Budget</th></tr>\n\
         </thead><tbody>';
-    var effect = gameState.lastTurnEffect;
     
     effect.incomeData.forEach(function (income){
        table += '<tr class="positive"><td class="sourceColumn">' + income.source + 
@@ -252,7 +252,8 @@ function InitGame()
     
     elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
 
-
+        infoTableWrapper.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());
+        
         console.log('clicked own country');
 
     });

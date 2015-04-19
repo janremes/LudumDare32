@@ -17,7 +17,7 @@ function Country()
     this.webIndex = 2;
     this.newspaperIndex = 3;
     
-    this.lastTurnEffect = new CountryEffect();
+    this.lastTurnEffect = new CountryEffect(this);
     this.neighboursPlayer = false;
     this.neighbouringCountries = [];
     
@@ -52,7 +52,7 @@ Country.prototype = {
 
     getTurnEndCountryEffect : function()
     {
-        var countryEffect = new CountryEffect();
+        var countryEffect = new CountryEffect(this);
         countryEffect.decreasePopularity(constants.influenceNegativeBias, "Bias");
         this.modifiers.forEach(function(modifier){
             if(modifier.enabled)
@@ -94,7 +94,7 @@ Country.prototype = {
         
         if(this.neighboursPlayer)
         {
-            countryEffect.decreasePopularity(new PopVector(constants.negbourPlayerInfluence,constants.negbourPlayerInfluence), "Fears you");
+            countryEffect.decreasePopularity(new PopVector(constants.negbourPlayerInfluence,constants.negbourPlayerInfluence), "Fears Myland");
         }
         
         return countryEffect;
@@ -104,7 +104,7 @@ Country.prototype = {
     turnEnd: function()
     {
         this.lastTurnEffect = this.getTurnEndCountryEffect();
-        this.lastTurnEffect.apply(this);
+        this.lastTurnEffect.apply();
     },
     
     addModifier : function(modifier)

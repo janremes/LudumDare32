@@ -19,7 +19,7 @@ MediaModifier.prototype = {
     },
     getTurnEndCountryEffect : function()
     {
-        var countryEffect = new CountryEffect();
+        var countryEffect = new CountryEffect(this.country);
         countryEffect.increasePopularity(this.effect, this.name);            
         return countryEffect;
     }
