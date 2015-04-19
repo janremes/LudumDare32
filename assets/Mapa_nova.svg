@@ -269,8 +269,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710675"
-     inkscape:cx="547.28636"
-     inkscape:cy="338.41176"
+     inkscape:cx="675.03315"
+     inkscape:cy="399.0005"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
@@ -318,9 +318,9 @@
     <rect
        style="opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:3.97311926;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="news_strip"
-       width="671.95123"
+       width="837.41425"
        height="53"
-       x="175.35213"
+       x="10"
        y="705"
        inkscape:label="#rect5270"
        ry="0" />
@@ -404,15 +404,6 @@
        sodipodi:start="0.71558499"
        sodipodi:end="0.68673731"
        d="m 769.32893,356.07645 a 107.72712,93.530525 0 0 1 -151.38985,9.66753 107.72712,93.530525 0 0 1 -12.22644,-131.36612 107.72712,93.530525 0 0 1 151.2135,-11.56232 107.72712,93.530525 0 0 1 14.4075,131.19935 L 688.02625,294.7149 Z" />
-    <rect
-       style="opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="suma_pole"
-       width="126.34387"
-       height="52.674095"
-       x="572.45837"
-       y="190.36887"
-       ry="0"
-       inkscape:label="#rect14757" />
     <g
        id="g14151"
        transform="translate(-3.8969727,0)" />
@@ -636,7 +627,7 @@
       </g>
     </g>
     <g
-       id="g12000"
+       id="ram-zeme5"
        transform="translate(11.313709,0)">
       <path
          sodipodi:nodetypes="cc"
@@ -653,7 +644,7 @@
          style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.755;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10.19999981;stroke-dasharray:5.26499999, 1.755;stroke-dashoffset:17.54999924;stroke-opacity:1" />
     </g>
     <g
-       id="g11307">
+       id="ram-zeme9">
       <g
          id="g12010">
         <path
@@ -672,7 +663,7 @@
       </g>
     </g>
     <g
-       id="g12020">
+       id="rem-zeme8">
       <path
          sodipodi:nodetypes="cc"
          inkscape:connector-curvature="0"
@@ -692,75 +683,79 @@
        d="m 523.97842,229.21291 c 7.48785,3.12869 7.41511,3.14359 19.08399,7.3833 0.5484,0.19925 1.41364,-0.3183 1.41364,0 0,0.24611 -0.87342,-0.17403 -0.70682,0 0.37252,0.38914 1.0411,0.3492 1.41362,0.73833 0.37253,0.38913 0.37772,1.04693 0.70682,1.47666 0.62443,0.81535 1.60616,1.31964 2.12045,2.21499 0.24243,0.42207 0,0.98444 0,1.47666 0,1.96888 -0.23561,-0.24611 0.70681,0.73833 0.16659,0.17403 0,0.49221 0,0.73833 0,0.24611 0,0.49222 0,0.73833 0,1.47666 0,2.95332 0,4.42997 0,0.24612 0.16659,0.56431 0,0.73834 -0.37252,0.38913 -1.04111,0.34919 -1.41363,0.73833 -0.3332,0.34805 0.21073,1.0364 0,1.47665 -0.14901,0.31131 -0.5578,0.42702 -0.70681,0.73834 -0.093,0.19413 0,2.56722 0,2.95331 0,1.96888 0,3.93776 0,5.90664 0,1.47666 0,2.95332 0,4.42998 0,0.24611 -0.1666,0.5643 0,0.73833 0.16659,0.17402 0.54022,-0.17403 0.70681,0 0.1666,0.17402 0,0.49222 0,0.73832 0,0.4727 -0.0801,4.30456 0,4.42998 0.5437,0.85193 1.57674,1.36307 2.12044,2.21499 0.29224,0.45789 0.41459,1.01877 0.70682,1.47667 0.5437,0.85191 1.57674,1.36307 2.12044,2.21499 0.26138,0.40955 -0.33319,1.1286 0,1.47665 0.1666,0.17403 0.4833,-0.0778 0.70682,0 0.49979,0.17403 0.91383,0.5643 1.41363,0.73833 0.27503,0.0957 2.01076,-0.11457 2.12044,0 0.1666,0.17403 -0.1666,0.56431 0,0.73834 0.1666,0.17402 0.54022,-0.17403 0.70682,0 0.33319,0.34805 -0.21074,1.0364 0,1.47665 0.29801,0.62261 1.11561,0.85405 1.41362,1.47666 0.10537,0.22013 -0.10536,0.5182 0,0.73833 0.29802,0.62261 1.04399,0.89746 1.41364,1.47666 0.29223,0.45789 0.57903,0.94278 0.70681,1.47666 0.11428,0.47753 -0.26138,1.06711 0,1.47666 0.5773,0.90456 1.75853,0.3425 2.12044,1.47665 0.10777,0.33772 -0.15725,2.62479 0,2.95333 0.14901,0.3113 0.55781,0.42702 0.70682,0.73833 0.20851,0.43563 -0.16205,1.70714 0,2.21499 0.94242,2.95332 0.67823,-0.1493 1.41362,3.69164 0.0924,0.48266 -0.0924,0.99401 0,1.47667 0.14612,0.76315 0.61441,1.44273 0.70682,2.21499 0.14612,1.22104 -0.1666,2.47346 0,3.69164 0.0745,0.54479 0.52184,0.96139 0.70682,1.47666 0.5232,1.45743 1.05223,2.91992 1.41363,4.42999 0.22857,0.95503 -0.29802,2.01939 0,2.95331 0.10536,0.33019 0.626,0.40067 0.70681,0.73833 0,0.73833 0,1.47666 0,2.21499 0.23561,0.24611 0.60145,0.40814 0.70681,0.73833 0.14902,0.46696 -0.14901,1.0097 0,1.47666 0.33453,1.04833 1.37224,0.73833 2.12045,0.73833 0.23561,0 0.60145,-0.22013 0.70681,0 0.21074,0.44025 -0.21073,1.0364 0,1.47666 0.10537,0.22012 0.54022,-0.17403 0.70682,0 0.16659,0.17402 0,0.49222 0,0.73833 0.2356,0.49221 0.33429,1.08752 0.70681,1.47665 0.1666,0.17403 0.54022,-0.17403 0.70682,0 0.1666,0.17403 -0.1666,0.56431 0,0.73834 0.1666,0.17402 0.54021,-0.17403 0.70682,0 0.1666,0.17402 -0.16661,0.5643 0,0.73833 0.1666,0.17402 0.54021,-0.17403 0.70681,0 0.16659,0.17402 -0.1666,0.5643 0,0.73832 0.16659,0.17403 0.49608,-0.11006 0.70681,0 0.84818,0.44301 1.27227,1.772 2.12045,2.21499 0.21073,0.11007 0.54021,-0.17402 0.70681,0 0.1666,0.17403 -0.1666,0.56431 0,0.73833 0.1445,0.15095 1.8402,-0.14637 2.12045,0 0.29801,0.15566 0.40879,0.58267 0.70681,0.73834 0.21074,0.11006 0.54022,-0.17403 0.70681,0 0.1666,0.17402 0,0.49221 0,0.73832 0,1.72277 0,3.44554 0,5.16831 0,2.70721 0,5.41442 0,8.12163 0,0.24611 0,0.49222 0,0.73833 0,0.2461 0.1666,0.5643 0,0.73833 -0.16659,0.17403 -0.54021,-0.17403 -0.70681,0 -0.1666,0.17403 0.10537,0.5182 0,0.73833 -0.149,0.31131 -0.47121,0.49222 -0.70681,0.73832 -0.23561,0.24611 -0.40879,0.58268 -0.70682,0.73834 -0.21073,0.11006 -0.49609,-0.11007 -0.70681,0 -2.94159,1.53637 0.75561,-0.051 -0.70682,1.47665 -0.1666,0.17403 -0.49608,-0.11006 -0.70681,0 -0.29802,0.15565 -0.4088,0.58268 -0.70681,0.73834 -0.21074,0.11006 -0.54022,-0.17403 -0.70682,0 -0.1666,0.17403 0.1666,0.5643 0,0.73833 -0.1666,0.17402 -0.54022,-0.17403 -0.70682,0 -0.16659,0.17402 0.10537,0.51819 0,0.73832 -1.47079,3.07275 0.0488,-0.7893 -1.41362,0.73833 -0.16661,0.17403 0.1666,0.56431 0,0.73834 -0.16661,0.17402 -0.54022,-0.17403 -0.70682,0 -0.35341,0.36916 0.35341,1.84581 0,2.21499 -0.1666,0.17402 -0.60145,-0.22013 -0.70682,0 -0.3534,0.73832 0.17671,1.47665 0,2.21498 -0.1807,0.75503 -0.52611,1.45996 -0.70681,2.21499 -0.1496,0.62508 0,2.18674 0,2.95333 0,2.21498 0,4.42997 0,6.64496"
        id="path12024"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="577.61163"
-       y="212"
-       id="text9131"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan9133"
+    <g
+       id="g9177"
+       transform="translate(0,36.983846)">
+      <rect
+         inkscape:label="#rect14757"
+         ry="0"
+         y="190.36887"
+         x="572.45837"
+         height="52.674095"
+         width="126.34387"
+         id="suma_pole"
+         style="opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text9131"
+         y="212"
          x="577.61163"
-         y="212"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'">Income</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="578.04742"
-       y="233.4111"
-       id="text9131-2"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan9133-8"
-         x="578.04742"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'"
+           y="212"
+           x="577.61163"
+           id="tspan9133"
+           sodipodi:role="line">Income</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text9131-2"
          y="233.4111"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'">Spending</tspan></text>
-    <rect
-       inkscape:label="#rect14757"
-       ry="0"
-       y="245.77698"
-       x="573.45648"
-       height="33.586071"
-       width="124.43352"
-       id="rect9234"
-       style="opacity:1;fill:#374845;fill-opacity:1;stroke:#ffffff;stroke-width:1.99613953;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="675.33563"
-       y="236.47018"
-       id="suma_text-1"
-       sodipodi:linespacing="125%"
-       inkscape:label="#text8645"><tspan
-         sodipodi:role="line"
-         id="tspan8647-0"
-         x="675.33563"
+         x="578.04742"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'"
+           y="233.4111"
+           x="578.04742"
+           id="tspan9133-8"
+           sodipodi:role="line">Spending</tspan></text>
+      <text
+         inkscape:label="#text8645"
+         sodipodi:linespacing="125%"
+         id="suma_text-1"
          y="236.47018"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">1000</tspan><tspan
-         sodipodi:role="line"
          x="675.33563"
-         y="258.34518"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
-         id="tspan14743-8" /></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="675.33563"
-       y="212"
-       id="suma_text-0"
-       sodipodi:linespacing="125%"
-       inkscape:label="#text8645"><tspan
-         sodipodi:role="line"
-         id="tspan8647-6"
-         x="675.33563"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+           y="236.47018"
+           x="675.33563"
+           id="tspan8647-0"
+           sodipodi:role="line">1000</tspan><tspan
+           id="tspan14743-8"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+           y="258.34518"
+           x="675.33563"
+           sodipodi:role="line" /></text>
+      <text
+         inkscape:label="#text8645"
+         sodipodi:linespacing="125%"
+         id="suma_text-0"
          y="212"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">1000</tspan><tspan
-         sodipodi:role="line"
          x="675.33563"
-         y="233.875"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
-         id="tspan14743-4" /></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+           y="212"
+           x="675.33563"
+           id="tspan8647-6"
+           sodipodi:role="line">1000</tspan><tspan
+           id="tspan14743-4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+           y="233.875"
+           x="675.33563"
+           sodipodi:role="line" /></text>
+    </g>
     <flowRoot
        xml:space="preserve"
        id="flowRoot9202"
@@ -811,38 +806,51 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:'Headline Two';-inkscape-font-specification:'Headline Two';letter-spacing:1px;fill:#ffffff"
          id="path9232" />
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="577.61163"
-       y="267.48761"
-       id="text9131-2-5"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan9133-8-4"
-         x="577.61163"
-         y="267.48761"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'">Budget</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="675.33563"
-       y="270.54669"
-       id="suma_text"
-       sodipodi:linespacing="125%"
-       inkscape:label="#text8645"><tspan
-         sodipodi:role="line"
-         id="tspan8647"
-         x="675.33563"
+    <g
+       id="g9169"
+       transform="translate(0,-55.740118)">
+      <rect
+         style="opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:1.99613953;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect9234"
+         width="124.43352"
+         height="33.586071"
+         x="573.45648"
+         y="245.77698"
+         ry="0"
+         inkscape:label="#rect14757" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text9131-2-5"
+         y="269.48761"
+         x="576.61163"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'"
+           y="269.48761"
+           x="576.61163"
+           id="tspan9133-8-4"
+           sodipodi:role="line">Budget</tspan></text>
+      <text
+         inkscape:label="#text8645"
+         sodipodi:linespacing="125%"
+         id="suma_text"
          y="270.54669"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">1000</tspan><tspan
-         sodipodi:role="line"
          x="675.33563"
-         y="292.42169"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
-         id="tspan14743" /></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+           y="270.54669"
+           x="675.33563"
+           id="tspan8647"
+           sodipodi:role="line">1000</tspan><tspan
+           id="tspan14743"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+           y="292.42169"
+           x="675.33563"
+           sodipodi:role="line" /></text>
+    </g>
     <rect
-       style="display:inline;opacity:1;fill:#d5006c;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="suma_pole-8"
        width="293.22107"
        height="56.968468"
@@ -861,7 +869,7 @@
          id="tspan9133-5"
          x="17.153267"
          y="36.348301"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'">Month left</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'">Days to summit</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -910,48 +918,6 @@
          y="58.223301"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
          id="tspan14743-4-0" /></text>
-    <g
-       style="fill:#d5006c;fill-opacity:1;stroke:none"
-       inkscape:label="#g14685"
-       transform="matrix(1,0,0,0.99659253,-845.52679,4.2472764)"
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       id="g9169">
-      <rect
-         ry="0"
-         inkscape:label="#rect5270"
-         y="703.14868"
-         x="855.52679"
-         height="53.181213"
-         width="157.12871"
-         id="rect9171"
-         style="opacity:1;fill:#d5006c;fill-opacity:1;stroke:none;stroke-width:3.97311926;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90" />
-    </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="88.128571"
-       y="726.44714"
-       id="text9131-6"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan9133-3"
-         x="88.128571"
-         y="726.44714"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle">DAYS TO SUMMIT</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="88.571686"
-       y="748.7868"
-       id="text9195"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan9197"
-         x="88.571686"
-         y="748.7868">0</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
