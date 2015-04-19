@@ -36,7 +36,25 @@ function UpdateVisual()
     });
 
     moneyElement.text(gameState.money);
+
+    countries.forEach(function(country){
+        country.modifiers.forEach(function(modif){
+
+           elementEnabled(modif.enabled,svgMap.select(modif.elementId));
+
+        });
+    });
 }
+
+
+function elementEnabled(enabled, element) {
+        if (enabled) {
+            element.attr({display: ''});
+        } else {
+
+            element.attr({display: 'none'});
+        }
+    }
 
 function PopVectorCells(popVector, percent)
 {
@@ -139,7 +157,11 @@ function InitGame()
             throw new Error("country with id " + id + " not found");
         }
 
-        var modifNames = ['tv', 'radio', 'noviny', 'net'];
+         var newCountry = new Country(element);
+        newCountry.elmId = id;
+
+
+        var modifNames = ['tv', 'radio', 'net', 'noviny'];
 
         for (var j = 0; j < modifNames.length; j++) {
             var tvId = id + "_" + modifNames[j];
@@ -151,11 +173,12 @@ function InitGame()
 
                 svgTv.attr({display: 'none'});
             }
+
+            newCountry.modifiers[j].elementId = "#" + tvId;
         }
 
 
-        var newCountry = new Country(element);
-        newCountry.elmId = id;
+      
         var newManager = new CountryManager(newCountry, element);
         countries.push(newCountry);
         managers.push(newManager);
@@ -277,7 +300,7 @@ function InitGame()
 
         showTooltip(country.modifiers[country.tvIndex],svgTv);
 
-        console.log('enable' + enabled + ' tv for ' + country.countryId);
+       // console.log('enable' + enabled + ' tv for ' + country.countryId);
 
 
     });
@@ -293,7 +316,7 @@ function InitGame()
         country.modifiers[country.radioIndex].elementId = modifId;
 
         showTooltip(country.modifiers[country.radioIndex],svgTv);
-        console.log('enable' + enabled + ' radio for ' + country.countryId);
+       // console.log('enable' + enabled + ' radio for ' + country.countryId);
 
     });
 
@@ -309,7 +332,7 @@ function InitGame()
 
         showTooltip(country.modifiers[country.newspaperIndex],svgTv);
 
-        console.log('enable' + enabled + ' tv for ' + country.countryId);
+      //  console.log('enable' + enabled + ' tv for ' + country.countryId);
     });
 
     elmNav.getElementById('net').addEventListener("mousedown", function () {
@@ -325,18 +348,11 @@ function InitGame()
         
         showTooltip(country.modifiers[country.webIndex],svgTv);
 
-        console.log('enable' + enabled + ' net for ' + country.countryId);
+      //  console.log('enable' + enabled + ' net for ' + country.countryId);
 
     });
 
-    function elementEnabled(enabled, element) {
-        if (enabled) {
-            element.attr({display: ''});
-        } else {
 
-            element.attr({display: 'none'});
-        }
-    }
 
     function showTooltip(modifier,element) {
         console.log('showing tooltip');
@@ -370,7 +386,7 @@ function InitGame()
         selectedModifier.enabled = !selectedModifier.enabled;
 
         //toggle visibility of selectd element on map
-        elementEnabled(selectedModifier.enabled,svgMap.select(selectedModifier.elementId))
+      //  elementEnabled(selectedModifier.enabled,svgMap.select(selectedModifier.elementId))
         
         if (selectedModifier.enabled) {
             gameState.money -= selectedModifier.cost;
