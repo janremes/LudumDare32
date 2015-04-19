@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="menu_slice2" sketch:type="MSLayerGroup" transform="translate(-360.000000, -56.000000)">
+        <g id="menu_slice2" sketch:type="MSLayerGroup" transform="translate(-360.000000, -57.000000)">
             <g id="layer3">
                 <rect id="rect8936" opacity="0.77899996" fill="#FFFFFF" sketch:type="MSShapeGroup" x="359.05109" y="194.40948" width="361.25558" height="132.89975"></rect>
                 <rect id="pomer_sad_mlady" fill="#374845" sketch:type="MSShapeGroup" x="519.75861" y="213.27502" width="121.26881" height="26.870058"></rect>
@@ -81,11 +81,11 @@
                 <rect id="pomer_happy_mlady" fill="#D5006C" sketch:type="MSShapeGroup" x="444.33038" y="213.27502" width="196.63635" height="26.870058"></rect>
                 <rect id="pomer_sad_stary" fill="#374845" sketch:type="MSShapeGroup" x="445.51233" y="272.99329" width="196.22214" height="26.870058"></rect>
                 <rect id="pomer_happy_stary" fill="#D5006C" sketch:type="MSShapeGroup" x="445.03748" y="272.99329" width="196.22214" height="26.870058"></rect>
-                <text id="tspan8647-5-6" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
+                <text id="popularity-old" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
                     <tspan x="447.04883" y="234.05255">00</tspan>
                 </text>
-                <text id="tspan11431" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
-                    <tspan x="447.04883" y="293.09595">00</tspan>
+                <text id="popularity-young" fill="#FFFFFF" sketch:type="MSTextLayer" font-family="Helvetica" font-size="25" font-weight="normal">
+                    <tspan x="447.04883" y="294.09595">00</tspan>
                 </text>
                 <rect id="rect18983" opacity="0.78" fill="#FFFFFF" sketch:type="MSShapeGroup" x="521.66486" y="61" width="198.64181" height="67.083819"></rect>
                 <rect id="rect8836" fill="#999999" sketch:type="MSShapeGroup" x="359.05109" y="116.40948" width="361.25558" height="73.89975"></rect>
