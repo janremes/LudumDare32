@@ -31,11 +31,17 @@ GUIConstants.prototype =
             var coeff = (popularity - 0.1) * (100/35);
             return this.mixColor(this.neutralColor, this.hateColor, coeff);            
         }
-        else if (popularity < 0.65)
+        else if (popularity < 0.5)
         {
             var coeff = (popularity - 0.45) * 4;
             return this.mixColor(this.loveColor, this.neutralColor, coeff);                        
         }
+        else if (popularity < 0.65)
+        {
+            var coeff = (popularity + 0.1) * 4/3;
+            return this.mixColor(this.loveColor, this.neutralColor, coeff);                        
+        }
+        else
         {
             return this.loveColor;
         }

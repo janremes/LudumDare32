@@ -47,7 +47,7 @@ function UpdateVisual()
     var turnEndEffect = gameState.getTurnEndEffect(); 
     spendingElement.text(-(turnEndEffect.money - gameState.incomePerTurn));
     
-    supportingCountriesElement.text(gameState.getSupportingCountries().length);
+    supportingCountriesElement.text(gameState.getSupportingCountries().length + '/' + gameState.countries.length);
     monthLeftElement.text(gameState.turnsLeft);
 
     countries.forEach(function (country) {
@@ -180,13 +180,13 @@ function ResetGameState()
         {name: 'Ironmist', neighbours: [1, 3, 6, 7], neighboursPlayer: true, popSize: new PopVector(5, 4), popularity: new PopVector(0.20, 0.08)},
         {name: 'Greihill', neighbours: [2, 8, 7], neighboursPlayer: true, popSize: new PopVector(4, 7), popularity: new PopVector(0.05, 0.23)},
         //4
-        {name: 'Southfalcon', neighbours: [5, 6], neighboursPlayer: false, popSize: new PopVector(3, 7), popularity: new PopVector(0.60, 0.55)},
+        {name: 'Southfalcon', neighbours: [5, 6], neighboursPlayer: false, popSize: new PopVector(3, 7), popularity: new PopVector(0.50, 0.45)},
         {name: 'Newby', neighbours: [4, 6], neighboursPlayer: false, popSize: new PopVector(5, 2), popularity: new PopVector(0.40, 0.55)},
         {name: 'Wywerbush', neighbours: [4, 5, 1, 2, 7], neighboursPlayer: false, popSize: new PopVector(25, 16), popularity: new PopVector(0.50, 0.45)},
         //7
         {name: 'Oldsummer', neighbours: [6, 2, 3, 8, 9], neighboursPlayer: false, popSize: new PopVector(12, 3), popularity: new PopVector(0.40, 0.30)},
-        {name: 'Glassapple', neighbours: [7, 3], neighboursPlayer: false, popSize: new PopVector(2, 9), popularity: new PopVector(0.20, 0.60)},
-        {name: 'Fairhall', neighbours: [7], neighboursPlayer: false, popSize: new PopVector(14, 2), popularity: new PopVector(0.60, 0.50)}
+        {name: 'Glassapple', neighbours: [7, 3], neighboursPlayer: false, popSize: new PopVector(2, 9), popularity: new PopVector(0.20, 0.50)},
+        {name: 'Fairhall', neighbours: [7], neighboursPlayer: false, popSize: new PopVector(14, 2), popularity: new PopVector(0.45, 0.50)}
     ];
     for (var i = 0; i < countryData.length; i++) {
         countries[i].reset();
