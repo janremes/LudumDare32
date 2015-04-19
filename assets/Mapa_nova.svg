@@ -319,18 +319,7 @@
        id="moje_zeme"
        inkscape:connector-curvature="0"
        inkscape:label="#path4179" />
-    <path
-       style="opacity:0;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:4.36970472;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path8610"
-       sodipodi:type="arc"
-       sodipodi:cx="688.02625"
-       sodipodi:cy="294.7149"
-       sodipodi:rx="107.72712"
-       sodipodi:ry="93.530525"
-       sodipodi:start="0.71558499"
-       sodipodi:end="0.68673731"
-       d="m 769.32893,356.07645 a 107.72712,93.530525 0 0 1 -151.38985,9.66753 107.72712,93.530525 0 0 1 -12.22644,-131.36612 107.72712,93.530525 0 0 1 151.2135,-11.56232 107.72712,93.530525 0 0 1 14.4075,131.19935 L 688.02625,294.7149 Z" />
-    <rect
+     <rect
        style="opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="suma_pole"
        width="118.21214"

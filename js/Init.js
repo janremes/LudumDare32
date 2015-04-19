@@ -247,8 +247,17 @@ function InitGame()
 
 
 
+    // own country clicked
 
-    //BUTTONS
+    
+    elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
+
+
+        console.log('clicked own country');
+
+    });
+
+        //BUTTONS
 
     elmNav.getElementById('tv').addEventListener("mousedown", function () {
 
