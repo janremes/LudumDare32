@@ -269,9 +269,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.99999995"
-     inkscape:cx="573.16755"
-     inkscape:cy="380.29445"
-     inkscape:current-layer="layer2"
+     inkscape:cx="521.95238"
+     inkscape:cy="379.29445"
+     inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1920"
@@ -558,6 +558,34 @@
          y="58.223301"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
          id="tspan14743-4-0" /></text>
+    <g
+       transform="translate(0,-696.50004)"
+       style="display:inline"
+       id="reset_button"
+       inkscape:label="#g3874">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         style="opacity:0.96;fill:#b01212;fill-opacity:1;stroke:none;stroke-width:3.97311926;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="reset_button_background"
+         width="157.12871"
+         height="53"
+         x="855.52673"
+         y="705"
+         inkscape:label="#rect5270"
+         ry="0" />
+      <text
+         transform="scale(1.0017081,0.99829481)"
+         sodipodi:linespacing="125%"
+         id="next-3"
+         y="742.05164"
+         x="932.50427"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.50000003px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         xml:space="preserve"
+         inkscape:label="#text14681"><tspan
+           sodipodi:role="line"
+           id="tspan4750">RESTART</tspan></text>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"

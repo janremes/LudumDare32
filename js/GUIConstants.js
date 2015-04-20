@@ -3,6 +3,10 @@ function GUIConstants()
     this.hateColor = new RGBColour(158, 166, 0);
     this.neutralColor = new RGBColour(55, 72, 69);
     this.loveColor = new RGBColour(213, 0, 108);    
+    
+    this.buttonBackgroundColor = "#b01212";
+    this.buttonBackgroundColorHover = "#d41616";
+    this.buttonBackgroundColorClick = "#f17575";
 }
 
 GUIConstants.prototype = 

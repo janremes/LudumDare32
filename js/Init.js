@@ -61,30 +61,6 @@ function UpdateVisual()
     
 }
 
-function DisplayEventInfo(title, text, buttons)
-{
-    var html = '<h2 id="dialogTitle">' + title + '</h2><div id="dialogText">' + text + "</div>";
-    dialogBox.innerHTML = html;
-    if (buttons)
-    {
-        var buttonContainer = $.parseHTML('<div id="dialogButtonContainer"></div>')[0];
-        buttons.forEach(function (b)
-        {
-            var newButton = $.parseHTML('<button class="dialogButton" type="button">' + b.name + '</button>')[0];
-            newButton.addEventListener("click", b.func);
-            $(buttonContainer).append(newButton);
-        });
-    }
-    $(dialogBox).append(buttonContainer);
-    $(dialogBox).css("display", "block");
-    $("#inactiveOverlay").css("display", "block");
-}
-
-function HideEventInfo()
-{
-    $(dialogBox).css("display", "none");
-    $("#inactiveOverlay").css("display", "none");
-}
 
 function elementEnabled(enabled, element) {
     if (enabled) {
@@ -171,57 +147,12 @@ function ShowRandomMessage()
 
 }
 
-function CreateStatChangeVisualisation(change, anchorId, parent, timeline, unit)
+
+function RestartGameFromDialog()
 {
-    var containerClientRect = parent.getBoundingClientRect();
-    var svgAnchor = svgMap.select(anchorId).node;
-    var svgClientRect = svgAnchor.getBoundingClientRect();
-    var initialTop = ((svgClientRect.top + svgClientRect.bottom) / 2 ) - containerClientRect.top + 5;
-    var initialLeft = ((svgClientRect.left + svgClientRect.right) / 2 ) - containerClientRect.left - 10;
-
-
-    if(change > 0)
-    {
-        change = '+' + change;
-    }
-
-    var newElement = $.parseHTML('<div class="statsChange">' +  change + unit + '</div>');
-    if(change > 0)
-    {
-        change = '+' + change;
-        $(newElement).addClass('positive');
-    }
-    else if (change < 0)
-    {
-        $(newElement).addClass('negative');                    
-    }
-    
-    //multiple shadows to create outline
-    var numShadows = 10;
-    var shadowCss = '';
-    var shadowWidth = 2;
-    for(var i = 0; i < numShadows; i++)
-    {
-        var angle = (i / numShadows) * Math.PI * 2;        
-        var x = Math.cos(angle) * shadowWidth;
-        var y = Math.sin(angle) * shadowWidth;
-        if( i > 0)
-        {
-            shadowCss += ',';
-        }
-        shadowCss += x + 'px ' + y + 'px 0 black'; 
-    }
-    
-    $(newElement).css({display :"block", position: "absolute", top: initialTop, left : initialLeft});
-    $(newElement).css("text-shadow", shadowCss);
-
-    
-    $(parent).append(newElement);
-
-    timeline.add(TweenMax.to(newElement, 2, 
-    {top : initialTop - 50, alpha : 0, onCompleteParams: [newElement], 
-        onComplete : function(elem) {$(elem).remove()} }
-                ), 3);    
+    ResetGameState();
+    HideEventInfo();
+    UpdateVisual();    
 }
 
 
@@ -578,12 +509,21 @@ function InitGame()
 
     });
 
-    elm.getElementById("next_button").addEventListener("mousedown", function () {
+    AddButtonEffects(elm.getElementById("next_button"), elm.getElementById("next_button_background"));
+    AddButtonEffects(elm.getElementById("reset_button"), elm.getElementById("reset_button_background"));
 
-        var nextButton = elm.getElementById("next_button_background");
-        var timeline = new TimelineMax();
-        timeline.add(TweenMax.to(nextButton, 0.3, {fill: "#f17575"}));
-        timeline.add(TweenMax.to(nextButton, 0.9, {fill: "#b01212"}));
+    elm.getElementById("reset_button").addEventListener("mousedown", function(){
+        if (gameState.isWin() || gameState.isLose())
+        {
+            RestartGameFromDialog();
+        }
+        else
+        {
+            DisplayEventInfo("Restart game", "Are you sure you want to restart?.", [{name: "Yes", func: RestartGameFromDialog}, {name: "No", func: HideEventInfo}]);
+        }        
+    });
+
+    elm.getElementById("next_button").addEventListener("mousedown", function () {
         
         console.log('next clicked');
 
@@ -600,21 +540,17 @@ function InitGame()
         gameState.turnEnd();
         UpdateVisual();
 
-        var restartGameButton = {name: "Restart game", func: function () {
-                ResetGameState();
-                HideEventInfo();
-                UpdateVisual();
-            }};
         if (gameState.isWin())
         {
-            DisplayEventInfo("You win", "You got support from over half the other countries. The sanctions will not take place.", [restartGameButton]);
+            DisplayEventInfo("You win", "You got support from over half the other countries. The sanctions will not take place.", [{name: "OK", func: HideEventInfo}]);
         }
         else if (gameState.isLose())
         {
-            DisplayEventInfo("You lose", "You failed to convince majority of the other countries. At the summit, sanctions passed.", [restartGameButton]);
+            DisplayEventInfo("You lose", "You failed to convince majority of the other countries. At the summit, sanctions passed.", [{name: "OK", func: HideEventInfo}]);
         }
         else
         {
+            var timeline = new TimelineMax();
             var textInfoParent = $('#canvas')[0];
             managers.forEach(function(m){
                 var change = Math.round(m.country.lastTurnEffect.overallPopularityEffect * 100);
