@@ -170,13 +170,14 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     
     height:100%;
     width: 30%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #infoTableWrapper thead
 {
    
 font-weight: 600;
+font-size: 20px;
 }
 
 
