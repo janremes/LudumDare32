@@ -2,7 +2,7 @@ function CountryManager(country, svgElement)
 {
     this.country = country;
     this.svgElement = svgElement;
-    
+    //this.popularityChangeElement = undefined;
 };
 
 CountryManager.prototype = {

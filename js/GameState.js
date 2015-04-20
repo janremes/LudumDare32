@@ -9,7 +9,7 @@ GameState.prototype = {
     reset : function()
     {
         this.money = constants.initialMoney;
-        this.incomePerTurn = constants.initialMoneyPerTurn;
+        this.incomePerTurn = constants.initialIncomePerTurn;
         this.turnsLeft = constants.numberOfTurns;
         this.lastTurnEffect = new GameStateEffect();        
     },
@@ -32,6 +32,8 @@ GameState.prototype = {
         });
         this.lastTurnEffect = this.getTurnEndEffect();
         this.lastTurnEffect.apply(this);
+        
+        this.incomePerTurn += constants.incomePerTurnIncrement;
         this.turnsLeft--;
     },
     

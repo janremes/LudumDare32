@@ -197,3 +197,20 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 {
     margin-top:10px;
 }
+
+.statsChange
+{
+    font-size: 20px;
+    font-weight:bold;
+    color:white;
+}
+
+.statsChange.positive
+{
+    color:#46ff46;
+}
+
+.statsChange.negative
+{
+    color:#ff0000;
+}
