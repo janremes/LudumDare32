@@ -232,7 +232,7 @@ function ResetGameState()
         //1 
         {name: 'Crystallville', neighbours: [2, 6], neighboursPlayer: true, popSize: new PopVector(15, 10), popularity: new PopVector(0.10, 0.10)},
         {name: 'Ironmist', neighbours: [1, 3, 6, 7], neighboursPlayer: true, popSize: new PopVector(5, 4), popularity: new PopVector(0.20, 0.08)},
-        {name: 'Greihill', neighbours: [2, 8, 7], neighboursPlayer: true, popSize: new PopVector(4, 7), popularity: new PopVector(0.05, 0.23)},
+        {name: 'Greyhill', neighbours: [2, 8, 7], neighboursPlayer: true, popSize: new PopVector(4, 7), popularity: new PopVector(0.05, 0.23)},
         //4
         {name: 'Southfalcon', neighbours: [5, 6], neighboursPlayer: false, popSize: new PopVector(3, 7), popularity: new PopVector(0.50, 0.45)},
         {name: 'Newby', neighbours: [4, 6], neighboursPlayer: false, popSize: new PopVector(5, 2), popularity: new PopVector(0.40, 0.55)},
@@ -393,8 +393,8 @@ function InitGame()
         showChange('#popularity-young-change tspan', country.lastTurnEffect.popularityEffect.young);
         showChange('#popularity-all-change tspan', country.lastTurnEffect.popularityEffect.old);
 
-        svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.young * 193}, 500);
-        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.old * 193}, 500);
+        svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.old * 193}, 500);
+        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young * 193}, 500);
         svgMenu.select('#pomer_happy_all').animate({width: country.getOverallPopularity() * 193}, 500);
 
         infoTableContent.innerHTML = CreateTableForCountry(country);
@@ -582,7 +582,7 @@ function InitGame()
 
         var nextButton = elm.getElementById("next_button_background");
         var timeline = new TimelineMax();
-        timeline.add(TweenMax.to(nextButton, 0.1, {fill: "#000000"}));
+        timeline.add(TweenMax.to(nextButton, 0.1, {fill: "#f17575"}));
         timeline.add(TweenMax.to(nextButton, 0.3, {fill: "#b01212"}));
         
         console.log('next clicked');

@@ -1,8 +1,8 @@
 function Constants()
 {
     this.numberOfTurns = 10;
-    this.initialMoney = 5000;
-    this.initialIncomePerTurn = 1000;
+    this.initialMoney = 2000;
+    this.initialIncomePerTurn = 2000;
     this.incomePerTurnIncrement = 1000;
     
     //influence
@@ -16,21 +16,21 @@ function Constants()
     this.negbourPlayerInfluence = 0.6;
     
     //modifiers
-    this.tvEffect = new PopVector(0.6,1.2);
-    this.tvCost = 9000;
-    this.tvUpkeep = 3000;
+    this.tvEffect = new PopVector(0.5,1.0);
+    this.tvCost = 6000;
+    this.tvUpkeep = 2000;
     
-    this.newspaperEffect = new PopVector(0.3,0.6);
-    this.newspaperCost = 600;
-    this.newspaperUpkeep = 1000;
+    this.newspaperEffect = new PopVector(0.1,0.4);
+    this.newspaperCost = 400;
+    this.newspaperUpkeep = 800;
     
-    this.radioEffect = new PopVector(0.3,0.3);
-    this.radioCost = 2400;
-    this.radioUpkeep = 300;
+    this.radioEffect = new PopVector(0.2,0.2);
+    this.radioCost = 1600;
+    this.radioUpkeep = 200;
     
-    this.webEffect = new PopVector(0.9, 0.3);
-    this.webCost = 6000;
-    this.webUpkeep = 600;
+    this.webEffect = new PopVector(0.5, 0.2);
+    this.webCost = 2000;
+    this.webUpkeep = 400;
     
     //messages
     this.minimalNeighbourInfluenceForMessage = 0.1;
