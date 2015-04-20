@@ -1,8 +1,9 @@
-function MediaModifier(country, cost, upkeep, effect, name)
+function MediaModifier(country, cost, upkeep, effect, name, nameLong)
 {
     this.upkeep = upkeep;
     this.cost = cost;
     this.name = name;
+    this.nameLong = nameLong;
     this.effect = effect;
     this.country = country;
     this.enabled = false;

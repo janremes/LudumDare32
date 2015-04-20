@@ -8,10 +8,10 @@ function Country()
     this.populationSize = new PopVector(10,10);
     
     this.modifiers = [
-        new MediaModifier(this, constants.tvCost, constants.tvUpkeep, constants.tvEffect, "TV"), 
-        new MediaModifier(this, constants.radioCost, constants.radioUpkeep, constants.radioEffect, "Radio"), 
-        new MediaModifier(this, constants.webCost, constants.webUpkeep, constants.webEffect, "Web"), 
-        new MediaModifier(this, constants.newspaperCost, constants.newspaperUpkeep, constants.newspaperEffect, "Newspaper")
+        new MediaModifier(this, constants.tvCost, constants.tvUpkeep, constants.tvEffect, "TV", "TV Station"), 
+        new MediaModifier(this, constants.radioCost, constants.radioUpkeep, constants.radioEffect, "Radio", "Radio Station"), 
+        new MediaModifier(this, constants.webCost, constants.webUpkeep, constants.webEffect, "Web", "News web"), 
+        new MediaModifier(this, constants.newspaperCost, constants.newspaperUpkeep, constants.newspaperEffect, "Newspaper", "Newspaper")
         ];
     this.tvIndex = 0;
     this.radioIndex = 1;

@@ -8,6 +8,7 @@ function CountryEffect(country)
     
     this.targetPopularity = new PopVector();
     this.popularityEffect = new PopVector();
+    this.overallPopularityEffect = 0;
 }
 
 CountryEffect.prototype = {
@@ -42,6 +43,8 @@ CountryEffect.prototype = {
         var oldPopularity = this.country.popularity;
         var newPopularity = (oldPopularity.multiply(coeffOld).add(targetPopularity.multiply(coeffNew))).divide(coeffOld + coeffNew);
         this.popularityEffect = newPopularity.subtract(oldPopularity);        
+        var newOverallPopularity = (newPopularity.old * this.country.populationSize.old +  newPopularity.young *this.country.populationSize.young) / (this.country.populationSize.young + this.country.populationSize.old);
+        this.overallPopularityEffect = newOverallPopularity - this.country.getOverallPopularity();
     },
     
     apply : function()
