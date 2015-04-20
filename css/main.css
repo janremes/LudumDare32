@@ -138,6 +138,12 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 
 }
 
+#newspaper-overview img 
+{
+    width:100%;
+    height:100%;    
+}
+
 #newspaper-title {
     text-align: center;
     font-family: "Times New Roman", serif;

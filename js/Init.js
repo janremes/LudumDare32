@@ -221,7 +221,7 @@ function CreateStatChangeVisualisation(change, anchorId, parent, timeline, unit)
     timeline.add(TweenMax.to(newElement, 2, 
     {top : initialTop - 50, alpha : 0, onCompleteParams: [newElement], 
         onComplete : function(elem) {$(elem).remove()} }
-                ), 1);    
+                ), 3);    
 }
 
 
@@ -565,7 +565,7 @@ function InitGame()
         UpdateVisual();
     });
 
-    $("#newspaper-overview").hide();
+    $("#newspaper-title").innerHTML = "Myland annexes Other land";
 
     $("#newspaper-overview").click(function () {
 
@@ -582,8 +582,8 @@ function InitGame()
 
         var nextButton = elm.getElementById("next_button_background");
         var timeline = new TimelineMax();
-        timeline.add(TweenMax.to(nextButton, 0.1, {fill: "#f17575"}));
-        timeline.add(TweenMax.to(nextButton, 0.3, {fill: "#b01212"}));
+        timeline.add(TweenMax.to(nextButton, 0.3, {fill: "#f17575"}));
+        timeline.add(TweenMax.to(nextButton, 0.9, {fill: "#b01212"}));
         
         console.log('next clicked');
 
