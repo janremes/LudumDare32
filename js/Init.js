@@ -49,29 +49,29 @@ function UpdateVisual()
     });
 }
 
-function DisplayEventInfo(title,text, buttons)
+function DisplayEventInfo(title, text, buttons)
 {
     var html = '<h2 id="dialogTitle">' + title + '</h2><div id="dialogText">' + text + "</div>";
     dialogBox.innerHTML = html;
-    if(buttons)
+    if (buttons)
     {
         var buttonContainer = $.parseHTML('<div id="dialogButtonContainer"></div>')[0];
-        buttons.forEach(function(b)
+        buttons.forEach(function (b)
         {
-           var newButton = $.parseHTML('<button class="dialogButton" type="button">' + b.name + '</button>')[0];
-           newButton.addEventListener("click", b.func);           
+            var newButton = $.parseHTML('<button class="dialogButton" type="button">' + b.name + '</button>')[0];
+            newButton.addEventListener("click", b.func);
             $(buttonContainer).append(newButton);
         });
     }
     $(dialogBox).append(buttonContainer);
     $(dialogBox).css("display", "block");
-    $("#inactiveOverlay").css("display","block");
+    $("#inactiveOverlay").css("display", "block");
 }
 
 function HideEventInfo()
 {
-    $(dialogBox).css("display", "none");    
-    $("#inactiveOverlay").css("display","none");
+    $(dialogBox).css("display", "none");
+    $("#inactiveOverlay").css("display", "none");
 }
 
 function elementEnabled(enabled, element) {
@@ -161,7 +161,7 @@ function ShowRandomMessage()
 
 function ResetGameState()
 {
-   //neighbours are 1-based indices (as in map)
+    //neighbours are 1-based indices (as in map)
     countryData = [
         //1 
         {name: 'Crystallville', neighbours: [2, 6], neighboursPlayer: true, popSize: new PopVector(15, 10), popularity: new PopVector(0.10, 0.10)},
@@ -188,8 +188,8 @@ function ResetGameState()
         countries[i].lastTurnPopularity = countryData[i].popularity;
         countries[i].id = i + 1;
         countries[i].name = countryData[i].name;
-    }   
-    
+    }
+
     gameState.reset();
 }
 
@@ -198,12 +198,14 @@ function InitGame()
 
 
     $("#menu-nav-tooltip").hide();
+    $("#menu-nav").hide();
 
     var elm = document.getElementById('svg-map').contentDocument;
     var elmNav = document.getElementById('svg-nav').contentDocument;
 
-    svgMenu = Snap('#svg-nav');
     svgMap = Snap('#svg-map');
+
+
 
     var mapsvgdoc = null;
 
@@ -261,17 +263,23 @@ function InitGame()
 
     }
 
+    svgMenu = Snap('#svg-nav');
 
- 
     managers.forEach(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
             selectedCountryManager = manager;
-            manager.onClick();
-            updateMenu(manager.country, manager.svgElement);
-            updateCountryStroke(manager.svgElement);
+            $("#menu-nav").show(100, function () {
 
-             $(svgMenu.select('#population-young').node).text(manager.country.populationSize.young + ' mil');
-             $(svgMenu.select('#population-old').node).text(manager.country.populationSize.old + ' mil');
+                svgMenu = Snap('#svg-nav');
+                manager.onClick();
+                updateMenu(manager.country, manager.svgElement);
+                updateCountryStroke(manager.svgElement);
+
+                $(svgMenu.select('#population-young').node).text(manager.country.populationSize.young + ' mil');
+                $(svgMenu.select('#population-old').node).text(manager.country.populationSize.old + ' mil');
+
+
+            });
         });
     });
 
@@ -314,19 +322,19 @@ function InitGame()
 
     gameState = new GameState(countries);
 
-   ResetGameState();
+    ResetGameState();
 
     moneyElement = $(svgMap.select('#suma_text tspan').node);
 
 
-    
+
     infoTableWrapper = $.parseHTML('<div id="infoTableWrapper"><h3>Detailed info</h3></div>')[0];
     infoTableContent = $.parseHTML('<div id="infoTableContent"></div>')[0];
     $(infoTableWrapper).append(infoTableContent);
     $('#canvas').append(infoTableWrapper);
 
     dialogBox = $.parseHTML('<div id="dialogBox"></div>')[0];
-    $(dialogBox).css("display","none");
+    $(dialogBox).css("display", "none");
     $('#canvas').append(dialogBox);
 
     UpdateVisual();
@@ -340,7 +348,7 @@ function InitGame()
     elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
 
         infoTableContent.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());
-
+        $("#menu-nav").hide();
         console.log('clicked own country');
 
     });
@@ -467,13 +475,13 @@ function InitGame()
 
         UpdateVisual();
     });
-    
+
     $("#newspaper-overview").hide();
 
-    $("#newspaper-overview").click(function(){
-       
-         $("#newspaper-overview").hide(500);
-        
+    $("#newspaper-overview").click(function () {
+
+        $("#newspaper-overview").hide(500);
+
     });
 
     elmNav.getElementById('tv').addEventListener("mouseover", function () {
@@ -489,27 +497,27 @@ function InitGame()
 
         if ((gameState.money + effect.money) < 0) {
 
-            DisplayEventInfo("You don't have enough money.", 
-            "You do not have enough money to support all media you are running this month. \n\
-             You need to shutdown some of your operations.", [{name : "Close", func: HideEventInfo}]);
+            DisplayEventInfo("You don't have enough money.",
+                    "You do not have enough money to support all media you are running this month. \n\
+             You need to shutdown some of your operations.", [{name: "Close", func: HideEventInfo}]);
             return;
         }
 
         gameState.turnEnd();
         UpdateVisual();
-        
-        var restartGameButton = { name : "Restart game", func : function() { 
-                ResetGameState(); 
-                HideEventInfo(); 
+
+        var restartGameButton = {name: "Restart game", func: function () {
+                ResetGameState();
+                HideEventInfo();
                 UpdateVisual();
             }};
-        if(gameState.isWin())
+        if (gameState.isWin())
         {
             DisplayEventInfo("You win", "You got support from over half the other countries. The sanctions will not take place.", [restartGameButton]);
         }
-        else if(gameState.isLose())
+        else if (gameState.isLose())
         {
-            DisplayEventInfo("You lose", "You failed to convince majority of the other countries. At the summit, sanctions passed.", [restartGameButton]);            
+            DisplayEventInfo("You lose", "You failed to convince majority of the other countries. At the summit, sanctions passed.", [restartGameButton]);
         }
     });
 
@@ -521,12 +529,12 @@ function InitGame()
 
     ShowRandomMessage();
     $(scrollText).css("top", "200%");
-    textTimeline = new TimelineMax({delay:1, repeat:-1, repeatDelay: 0.3, onRepeat:ShowRandomMessage});
+    textTimeline = new TimelineMax({delay: 1, repeat: -1, repeatDelay: 0.3, onRepeat: ShowRandomMessage});
     textTimeline.add(TweenMax.to(
-            scrollText, 0.5, 
+            scrollText, 0.5,
             {top: "0%", ease: Linear.easeInOut}));
     textTimeline.add(TweenMax.to(
-            scrollText, 0.5, 
+            scrollText, 0.5,
             {top: "-200%", ease: Linear.easeInOut, delay: 5}));
 
     console.log("window loaded");
