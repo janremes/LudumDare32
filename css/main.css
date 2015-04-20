@@ -91,6 +91,7 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     bottom:70px;
     display: block;
     right:30px;
+ 
     
 }
 
@@ -151,23 +152,36 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 }
 
 #menu-nav-tooltip button{
-     /*text-align: center !important; */
-
+ 
      vertical-align: bottom;
 }
 
 
 #infoTableWrapper
 {
+
     position:absolute;
     top:0px;
     left:100%;
     display:block;
-    background-color: white;
-    color:black;
+    background-color: black;
+    letter-spacing: 1px;
+    color:white;
+    
     height:100%;
     width: 30%;
     overflow: scroll;
+}
+
+#infoTableWrapper thead
+{
+   
+font-weight: 600;
+}
+
+
+#infoTableContent {
+    background-color: black;
 }
 
 #dialogBox
