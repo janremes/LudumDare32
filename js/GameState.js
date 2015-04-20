@@ -28,6 +28,11 @@ GameState.prototype = {
 
     turnEnd : function ()
     {
+        if(this.turnsLeft <= 0)
+        {
+            return;
+        }
+            
         this.lastTurnSupportingCountries = this.getSupportingCountries();
         this.countries.forEach(function(c){
             c.turnEnd();

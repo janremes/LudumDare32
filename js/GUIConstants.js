@@ -7,6 +7,7 @@ function GUIConstants()
     this.buttonBackgroundColor = "#b01212";
     this.buttonBackgroundColorHover = "#d41616";
     this.buttonBackgroundColorClick = "#f17575";
+    
 }
 
 GUIConstants.prototype = 

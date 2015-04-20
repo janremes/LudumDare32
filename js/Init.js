@@ -43,9 +43,21 @@ var tutorialClickNextMonthTimeline;
 
 function UpdateVisual()
 {
+    var managerSelected = false;
     managers.forEach(function (m) {
+        if(m.selected)
+        {
+            infoTableContent.innerHTML = CreateTableForCountry(m.country);
+            managerSelected = true;
+        }
         m.updateVisual();
     });
+    
+    if(!managerSelected)
+    {
+        $("#menu-nav").hide();
+        infoTableContent.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());                    
+    }
 
     moneyElement.text(gameState.money);
     incomeElement.text(gameState.incomePerTurn);
@@ -56,12 +68,15 @@ function UpdateVisual()
     monthLeftElement.text(gameState.turnsLeft);
 
     countries.forEach(function (country) {
+                
         country.modifiers.forEach(function (modif) {
 
             elementEnabled(modif.enabled, svgMap.select(modif.elementId));
 
         });
     });
+    
+
     
     
 }
@@ -76,38 +91,52 @@ function elementEnabled(enabled, element) {
     }
 }
 
-function PopVectorCells(popVector, percent)
+function PopVectorSingleCell(value, percent)
 {
-    var valYoung, valOld;
+    var valYoung;
     if (percent)
     {
-        valYoung = Math.round(popVector.young * 100) + '%';
-        valOld = Math.round(popVector.old * 100) + '%';
+        valYoung = Math.round(value * 100) + '%';
     }
     else
     {
-        valYoung = Math.round(popVector.young * 100) / 100;
-        valOld = Math.round(popVector.old * 100) / 100;
+        valYoung = Math.round(value * 100) / 100;
     }
-    return '<td class="numberColumn">' + valYoung +
-            '</td><td class="numberColumn">' + valOld +
-            '</td>';
+    
+    var cls = "numberColumn";
+    if(value >= 0.01)
+    {
+        cls = cls + ' positive';
+        valYoung = '+' + valYoung;
+    }
+    else if(value <= -0.01)
+    {
+        cls = cls + ' negative';
+    }
+    
+    return '<td class="'+cls+'">' + valYoung +
+            '</td>';    
+}
+
+function PopVectorCells(popVector, percent)
+{
+    return PopVectorSingleCell(popVector.young, percent) + PopVectorSingleCell(popVector.old, percent);
 }
 
 function CreateTableForCountry(country)
 {
     var table = '<table><thead><tr><th colspan="3">Influence - ' + country.name + '</th></tr>\n\
-        <tr><th>Source</th><th><img src="assets/young.png" alt="Young"></th><th><img src="assets/old.png" alt="Old"></th></tr>\n\
+        <tr><th class="sourceColumn">Source</th><th><img src="assets/young.png" alt="Young"></th><th><img src="assets/old.png" alt="Old"></th></tr>\n\
         </thead><tbody>';
     var effect = country.getTurnEndCountryEffect();
 
     effect.positiveInfluence.forEach(function (influence) {
-        table += '<tr class="positive"><td class="sourceColumn">' + influence.source +
+        table += '<tr><td class="sourceColumn">' + influence.source +
                 '</td>' + PopVectorCells(influence.amount) + '</tr>';
     });
 
     effect.negativeInfluence.forEach(function (influence) {
-        table += '<tr class="negative"><td class="sourceColumn">' + influence.source +
+        table += '<tr><td class="sourceColumn">' + influence.source +
                 '</td>' + PopVectorCells(influence.amount.multiply(-1)) + '</tr>';
     });
 
@@ -127,17 +156,27 @@ function CreateTableForBudget(effect)
     var effect = gameState.getTurnEndEffect();
 
     effect.incomeData.forEach(function (income) {
-        table += '<tr class="positive"><td class="sourceColumn">' + income.source +
-                '</td><td class="numberColumn">' + income.amount + '</td></tr>';
+        table += '<tr><td class="sourceColumn">' + income.source +
+                '</td><td class="numberColumn positive">' + income.amount + '</td></tr>';
 
     });
 
     effect.spendingData.forEach(function (spending) {
-        table += '<tr class="negative"><td class="sourceColumn">' + spending.source +
-                '</td><td class="numberColumn">' + (-spending.amount) + '</td></tr>';
+        table += '<tr><td class="sourceColumn">' + spending.source +
+                '</td><td class="numberColumn negative">' + (-spending.amount) + '</td></tr>';
     });
 
-    table += '<tr class="total"><td>Total</td><td>' + effect.money + '</td></tr>';
+    var cls = '';
+    if(effect.money > 0)
+    {
+        cls = ' positive';
+    }
+    else if (effect.money < 0)
+    {
+        cls = ' negative';
+    }
+    
+    table += '<tr class="total"><td>Total</td><td class="numberColumn' + cls + '">' + effect.money + '</td></tr>';
 
     return table + '</tbody></table>';
 }
@@ -275,6 +314,8 @@ function InitGame()
             $("#menu-nav").show(100, function () {
 
                 manager.onClick();
+                managers.forEach(function(m) { m.selected = false;});
+                manager.selected = true;
                 updateMenu(manager.country, manager.svgElement);
                 updateCountryStroke(manager.svgElement);
                
@@ -382,6 +423,7 @@ function InitGame()
 
     elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
 
+        managers.forEach(function(m) { m.selected = false;});
         infoTableContent.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());
         $("#menu-nav").hide();
         console.log('clicked own country');
