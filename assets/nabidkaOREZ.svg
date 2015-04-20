@@ -175,16 +175,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.99999996"
-     inkscape:cx="-278.3558"
-     inkscape:cy="128.14656"
+     inkscape:zoom="2.828427"
+     inkscape:cx="174.68309"
+     inkscape:cy="154.78554"
      inkscape:current-layer="layer3"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1018"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1440"
+     inkscape:window-height="811"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -211,10 +211,10 @@
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.57070267;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect8936"
-       width="339.33527"
-       height="144.37894"
+       width="338.98172"
+       height="156.04619"
        x="671.97137"
-       y="545.4303"
+       y="533.763"
        ry="0" />
     <rect
        y="560.14508"
@@ -696,20 +696,20 @@
        id="rect18983"
        width="184.03523"
        height="52.707359"
-       x="808.66486"
-       y="427.37646"
+       x="809.01843"
+       y="419.24475"
        ry="8.4915705" />
     <rect
        ry="0"
-       y="471.40948"
-       x="671.97137"
+       y="463.27777"
+       x="672.32495"
        height="67.39975"
        width="339.33527"
        id="rect8836"
        style="opacity:1;fill:#374845;fill-opacity:1;stroke:none;stroke-width:1.57070267;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <g
        id="g8808"
-       transform="translate(1.381373,-2.0000011)">
+       transform="translate(1.7349264,-10.131729)">
       <g
          inkscape:label="#zeme6_tv"
          style="display:inline;fill:#ffffff;fill-opacity:1"
@@ -932,7 +932,7 @@
     </g>
     <g
        id="g8744"
-       transform="matrix(0.88650158,0,0,0.88650158,118.0957,46.380606)">
+       transform="matrix(0.88650158,0,0,0.88650158,118.44925,38.248878)">
       <g
          transform="matrix(0.34662357,0,0,0.34662357,664.97751,485.05709)"
          id="g8822"
@@ -990,7 +990,7 @@
     </g>
     <g
        id="g8753"
-       transform="matrix(0.88650158,0,0,0.88650158,116.54969,46.380606)">
+       transform="matrix(0.88650158,0,0,0.88650158,116.90324,38.248878)">
       <g
          id="g8838"
          transform="translate(277.00001,-111.13794)"
@@ -1077,37 +1077,37 @@
        inkscape:label="#text8645"
        sodipodi:linespacing="125%"
        id="population-young"
-       y="508.19989"
-       x="762.44873"
+       y="500.06818"
+       x="762.80231"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';fill:#ffffff;fill-opacity:1"
-         y="508.19989"
-         x="762.44873"
+         y="500.06818"
+         x="762.80231"
          id="tspan11431-9"
          sodipodi:role="line">00</tspan><tspan
          id="tspan11433-8"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';fill:#ffffff;fill-opacity:1"
-         y="530.07489"
-         x="762.44873"
+         y="521.94318"
+         x="762.80231"
          sodipodi:role="line" /></text>
     <text
        inkscape:label="#text8645"
        sodipodi:linespacing="125%"
        id="population-old"
-       y="508.19989"
-       x="915.5636"
+       y="500.06818"
+       x="915.91718"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';fill:#ffffff;fill-opacity:1"
-         y="508.19989"
-         x="915.5636"
+         y="500.06818"
+         x="915.91718"
          id="tspan11431-9-9"
          sodipodi:role="line">00</tspan><tspan
          id="tspan11433-8-4"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT';fill:#ffffff;fill-opacity:1"
-         y="530.07489"
-         x="915.5636"
+         y="521.94318"
+         x="915.91718"
          sodipodi:role="line" /></text>
     <text
        inkscape:label="#text8645"
@@ -1215,5 +1215,17 @@
          y="703.62195"
          x="762.54883"
          sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="811.625"
+       y="553.13055"
+       id="text3492"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3494"
+         x="811.625"
+         y="553.13055"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Swis721 BlkCn BT';-inkscape-font-specification:'Swis721 BlkCn BT'">Popularity</tspan></text>
   </g>
 </svg>
