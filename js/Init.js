@@ -37,6 +37,10 @@ var moneyElement;
 var spendingElement;
 var incomeElement;
 
+var tutorialClickObjectTimeline;
+var tutorialClickMediumTimeline;
+var tutorialClickNextMonthTimeline;
+
 function UpdateVisual()
 {
     managers.forEach(function (m) {
@@ -273,10 +277,21 @@ function InitGame()
                 manager.onClick();
                 updateMenu(manager.country, manager.svgElement);
                 updateCountryStroke(manager.svgElement);
-
+               
                 $(svgMenu.select('#population-young').node).text(manager.country.populationSize.young + ' mil');
                 $(svgMenu.select('#population-old').node).text(manager.country.populationSize.old + ' mil');
 
+                if(tutorialClickObjectTimeline)
+                {
+                    tutorialClickObjectTimeline.kill();
+                    tutorialClickObjectTimeline = undefined;
+                    managers[5].updateVisual();
+                    
+                    tutorialClickMediumTimeline = new TimelineMax({repeat: -1, repeatDelay:3, delay: 3});
+                    var targetObject = svgMenu.select("#net").node;
+                    tutorialClickMediumTimeline.to(targetObject, 0.3, {alpha : 0.1});
+                    tutorialClickMediumTimeline.to(targetObject, 0.7, {alpha : 1});
+                }
 
             });
         });
@@ -377,6 +392,7 @@ function InitGame()
 
     elmNav.getElementById('tv').addEventListener("mousedown", function () {
 
+        StopTutorialMedium();
         var country = selectedCountryManager.country;
 
         var modifId = "#" + country.elmId + "_tv";
@@ -394,6 +410,7 @@ function InitGame()
 
     elmNav.getElementById('radio').addEventListener("mousedown", function () {
 
+        StopTutorialMedium();
         var country = selectedCountryManager.country;
 
         var modifId = "#" + country.elmId + "_radio";
@@ -409,6 +426,7 @@ function InitGame()
 
     elmNav.getElementById('noviny').addEventListener("mousedown", function () {
 
+        StopTutorialMedium();
         var country = selectedCountryManager.country;
 
         var modifId = "#" + country.elmId + "_noviny";
@@ -424,7 +442,7 @@ function InitGame()
 
     elmNav.getElementById('net').addEventListener("mousedown", function () {
 
-
+        StopTutorialMedium();
         var country = selectedCountryManager.country;
 
         var modifId = "#" + country.elmId + "_net";
@@ -504,6 +522,13 @@ function InitGame()
         ShowNoviny("N. 64/2015","21/04/2015", "International summit in 10 months","Will there be sanctions?", "Fear of propaganda.");
         $("#svg-noviny").click(function() { 
             HideNoviny();
+            
+            var targetManager = managers[5];
+            tutorialClickObjectTimeline = new TimelineMax({delay: 3, repeat: -1, repeatDelay:3});
+            var baseColor = guiConstants.getColorForPopularity(targetManager.country.getOverallPopularity()).getCSSHexadecimalRGB();
+            tutorialClickObjectTimeline.to(targetManager.svgElement, 0.3, {fill: "#C0C0C0"});  
+            tutorialClickObjectTimeline.to(targetManager.svgElement, 0.7, {fill: baseColor});  
+            
         });
     } );
 
@@ -527,7 +552,8 @@ function InitGame()
     });
 
     elm.getElementById("next_button").addEventListener("mousedown", function () {
-        
+
+        StopTutorialNextTurn();
         console.log('next clicked');
 
         var effect = gameState.getTurnEndEffect();
@@ -563,6 +589,12 @@ function InitGame()
                 CreateStatChangeVisualisation(change, anchorId, textInfoParent, timeline, '%');                
             });
             CreateStatChangeVisualisation(gameState.lastTurnEffect.money, '#suma_text', textInfoParent, timeline, '$');
+            CreateStatChangeVisualisation(-1, '#suma_text-0-3', textInfoParent, timeline, ' month');
+            var countriesChange = gameState.getSupportingCountries().length - gameState.lastTurnSupportingCountries.length;
+            if(countriesChange != 0)
+            {
+                CreateStatChangeVisualisation(countriesChange, '#suma_text-1-3', textInfoParent, timeline, ' country');
+            }
         }
     });
 

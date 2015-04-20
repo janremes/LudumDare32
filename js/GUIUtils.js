@@ -110,3 +110,28 @@ function HideNoviny()
     $("#inactiveOverlay").css("display", "none");
     $("#svg-noviny").hide(500);    
 }
+
+function StopTutorialMedium()
+{
+                if(tutorialClickMediumTimeline)
+                {
+                    tutorialClickMediumTimeline.kill();
+                    tutorialClickMediumTimeline = undefined;
+                    var targetObject = svgMenu.select("#net").node;
+                    TweenMax.to(targetObject, 0.1, {alpha : 1});
+                    
+                    tutorialClickNextMonthTimeline = new TimelineMax({repeat: -1, repeatDelay:3, delay: 3});
+                    var targetObject = svgMap.select("#next_button_background").node;
+                    tutorialClickNextMonthTimeline.to(targetObject, 0.3, {fill : guiConstants.buttonBackgroundColorClick});
+                    tutorialClickNextMonthTimeline.to(targetObject, 0.7, {fill : guiConstants.buttonBackgroundColor});                            
+                }
+}
+
+function StopTutorialNextTurn()
+{
+    if(tutorialClickNextMonthTimeline)
+    {
+        tutorialClickNextMonthTimeline.kill();
+        tutorialClickNextMonthTimeline = undefined;
+    }
+}

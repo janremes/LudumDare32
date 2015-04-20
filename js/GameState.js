@@ -11,7 +11,8 @@ GameState.prototype = {
         this.money = constants.initialMoney;
         this.incomePerTurn = constants.initialIncomePerTurn;
         this.turnsLeft = constants.numberOfTurns;
-        this.lastTurnEffect = new GameStateEffect();        
+        this.lastTurnEffect = new GameStateEffect();   
+        this.lastTurnSupportingCountries = [];
     },
     getTurnEndEffect : function()
     {
@@ -27,6 +28,7 @@ GameState.prototype = {
 
     turnEnd : function ()
     {
+        this.lastTurnSupportingCountries = this.getSupportingCountries();
         this.countries.forEach(function(c){
             c.turnEnd();
         });
