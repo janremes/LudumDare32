@@ -92,3 +92,21 @@ function AddButtonEffects(svgElement, fillElement)
     });
     
 }
+
+
+function ShowNoviny(vydani, datum, titulek1, titulek2, titulek3)
+{
+    $(svgNoviny.select('#vydani').node).text(vydani);
+    $(svgNoviny.select('#datum').node).text(datum);
+    $(svgNoviny.select('#headline1').node).text(titulek1);
+    $(svgNoviny.select('#headline2').node).text(titulek2);
+    $(svgNoviny.select('#headline3').node).text(titulek3);
+    $("#inactiveOverlay").css("display", "block");
+    
+}
+
+function HideNoviny()
+{
+    $("#inactiveOverlay").css("display", "none");
+    $("#svg-noviny").hide(500);    
+}

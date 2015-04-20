@@ -16,6 +16,7 @@
 var gameState;
 var svgMenu;
 var svgMap;
+var svgNoviny;
 
 var myCountryId;
 var countryIds;
@@ -262,13 +263,13 @@ function InitGame()
     }
 
     svgMenu = Snap('#svg-nav');
+    svgNoviny = Snap('#svg-noviny');
 
     managers.forEach(function (manager) {
         manager.svgElement.addEventListener("mousedown", function () {
             selectedCountryManager = manager;
             $("#menu-nav").show(100, function () {
 
-                svgMenu = Snap('#svg-nav');
                 manager.onClick();
                 updateMenu(manager.country, manager.svgElement);
                 updateCountryStroke(manager.svgElement);
@@ -496,13 +497,15 @@ function InitGame()
         UpdateVisual();
     });
 
-    $("#newspaper-title").innerHTML = "Myland annexes Other land";
+    
+    ShowNoviny("N. 63/2015","20/04/2015", "Myland annexes Otherland","International outrage", "Who's next?");
 
-    $("#newspaper-overview").click(function () {
-
-        $("#newspaper-overview").hide(500);
-
-    });
+    $("#svg-noviny").click(function() { 
+        ShowNoviny("N. 64/2015","21/04/2015", "International summit in 10 months","Will there be sanctions?", "Fear of propaganda.");
+        $("#svg-noviny").click(function() { 
+            HideNoviny();
+        });
+    } );
 
     elmNav.getElementById('tv').addEventListener("mouseover", function () {
 
@@ -579,6 +582,8 @@ function InitGame()
             scrollText, 0.5,
             {top: "-200%", ease: Linear.easeInOut, delay: 5}));
 
+
+    $("#preloader").css("display","none");
     console.log("window loaded");
 
 }
