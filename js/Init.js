@@ -271,6 +271,7 @@ function ResetGameState()
     for (var i = 0; i < countryData.length; i++) {
         countries[i].reset();
         countries[i].neighboursPlayer = countryData[i].neighboursPlayer;
+        countries[i].neighbouringCountries = [];
         for (var j = 0; j < countryData[i].neighbours.length; j++)
         {
             countries[i].neighbouringCountries.push(countries[countryData[i].neighbours[j] - 1]);
