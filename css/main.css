@@ -231,6 +231,14 @@ table .popularity td, table .total td
     z-index:14;
 }
 
+#preloader img
+{
+    display:block;
+    position:absolute;
+    top:50%;
+    left:45%;
+}
+
 #dialogButtonContainer
 {
     margin-top:10px;
@@ -272,3 +280,9 @@ table .popularity td, table .total td
     color:gray;
 }
 
+.selectionLine
+{
+    height:3px;
+    background: linear-gradient(to left, #374845,white);
+    /*border:2px dashed #374845;    */
+}

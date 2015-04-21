@@ -49,6 +49,7 @@ function UpdateVisual()
         {
             infoTableContent.innerHTML = CreateTableForCountry(m.country);
             managerSelected = true;
+            ShowSelectionLine(m);
         }
         m.updateVisual();
     });
@@ -57,6 +58,7 @@ function UpdateVisual()
     {
         $("#menu-nav").hide();
         infoTableContent.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());                    
+        HideSelectionLine();
     }
 
     moneyElement.text(gameState.money);
@@ -75,9 +77,7 @@ function UpdateVisual()
 
         });
     });
-    
-
-    
+        
     
 }
 
@@ -318,6 +318,7 @@ function InitGame()
                 manager.selected = true;
                 updateMenu(manager.country, manager.svgElement);
                 updateCountryStroke(manager.svgElement);
+                ShowSelectionLine(manager);
                
                 $(svgMenu.select('#population-young').node).text(manager.country.populationSize.young + ' mil');
                 $(svgMenu.select('#population-old').node).text(manager.country.populationSize.old + ' mil');
@@ -423,6 +424,7 @@ function InitGame()
 
     elm.getElementById('moje_zeme').addEventListener("mousedown", function () {
 
+        HideSelectionLine();
         managers.forEach(function(m) { m.selected = false;});
         infoTableContent.innerHTML = CreateTableForBudget(gameState.getTurnEndEffect());
         $("#menu-nav").hide();
