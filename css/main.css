@@ -7,6 +7,8 @@ html, body {
     width: 100%;
     background: #000;
      font-family: 'HeadlineTwo' !important;
+    margin-top:0px;
+    padding-top:0px;
 }
 
 
@@ -20,6 +22,8 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 
 #svg-map
 {
+    margin-top:0px;
+    padding-top:0px;
     width:800px;
     height: 640px;    
 }
@@ -31,7 +35,9 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 }
 
 #wrapper {
-
+    margin-top:0px;
+    padding-top:0px;
+    margin-left: -280px;
  /*display: block;*/
 
     /* width: 100%; */
@@ -42,6 +48,8 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
 
 
 #canvas {
+    margin-top:0px;
+    padding-top:0px;
 
     display: block;
     position:relative;
@@ -51,7 +59,7 @@ div.marqueeleft2 { margin-left: 0; margin-right: auto; }
     text-align: center;
     
 
-    margin: 20px auto 0px;
+    margin: 0px auto 0px;
 }
 
 

@@ -41,6 +41,56 @@ var tutorialClickObjectTimeline;
 var tutorialClickMediumTimeline;
 var tutorialClickNextMonthTimeline;
 
+    function updateCountryStroke(element) {
+
+        managers.forEach(function (manager) {
+
+            var strokeColor = "#FFFFFF";
+            var snapCountryElm = Snap(manager.svgElement);
+
+            if (manager.svgElement === element) {
+                strokeColor = "#40E0D0";
+            }
+
+            snapCountryElm.attr({
+                stroke: strokeColor,
+                strokeWidth: 2,
+            });
+
+        });
+
+
+    }
+
+    function showChange(select, change)
+    {
+        var changeText = Math.round(change * 100) + '%';
+        if(change > 0.01)
+        {
+            changeText = '+' + changeText;
+        }
+        $(svgMenu.select(select).node).text('Change: ' + changeText + '');        
+    }
+
+
+function updateMenu(country) {
+
+    console.log('updating menu' + country);
+    $(svgMenu.select('#popularity-old tspan').node).text(Math.round(country.popularity.old * 100) + '%');
+    $(svgMenu.select('#popularity-young tspan').node).text(Math.round(country.popularity.young * 100) + '%');
+    $(svgMenu.select('#popularity-all tspan').node).text(Math.round(country.getOverallPopularity() * 100) + '%');
+
+    showChange('#popularity-old-change tspan', country.lastTurnEffect.popularityEffect.old);
+    showChange('#popularity-young-change tspan', country.lastTurnEffect.popularityEffect.young);
+    showChange('#popularity-all-change tspan', country.lastTurnEffect.popularityEffect.old);
+
+    svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.old * 193}, 500);
+    svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young * 193}, 500);
+    svgMenu.select('#pomer_happy_all').animate({width: country.getOverallPopularity() * 193}, 500);
+
+    infoTableContent.innerHTML = CreateTableForCountry(country);
+}
+
 function UpdateVisual()
 {
     var managerSelected = false;
@@ -50,6 +100,7 @@ function UpdateVisual()
             infoTableContent.innerHTML = CreateTableForCountry(m.country);
             managerSelected = true;
             ShowSelectionLine(m);
+            updateMenu(m.country);
         }
         m.updateVisual();
     });
@@ -141,7 +192,7 @@ function CreateTableForCountry(country)
     });
 
     table += '<tr class="total"><td>Total</td>' + PopVectorCells(effect.influence) + '</tr>';
-    table += '<tr class="previous"><td>Previous turn</td>' + PopVectorCells(country.lastTurnEffect.influence) + '</tr>';
+//    table += '<tr class="previous"><td>Previous total:</td>' + PopVectorCells(country.lastTurnEffect.influence) + '</tr>';
 
     table += '<tr class="popularity"><td>Expected popularity change</td>' + PopVectorCells(effect.popularityEffect) + '</tr>';
 
@@ -313,6 +364,7 @@ function InitGame()
             selectedCountryManager = manager;
             $("#menu-nav").show(100, function () {
 
+                $("#menu-nav-tooltip").hide();
                 manager.onClick();
                 managers.forEach(function(m) { m.selected = false;});
                 manager.selected = true;
@@ -340,54 +392,8 @@ function InitGame()
     });
 
 
-    function updateCountryStroke(element) {
-
-        managers.forEach(function (manager) {
-
-            var strokeColor = "#FFFFFF";
-            var snapCountryElm = Snap(manager.svgElement);
-
-            if (manager.svgElement === element) {
-                strokeColor = "#40E0D0";
-            }
-
-            snapCountryElm.attr({
-                stroke: strokeColor,
-                strokeWidth: 2,
-            });
-
-        });
 
 
-    }
-
-    function showChange(select, change)
-    {
-        var changeText = Math.round(change * 100) + '%';
-        if(change > 0.01)
-        {
-            changeText = '+' + changeText;
-        }
-        $(svgMenu.select(select).node).text('Change: ' + changeText + '');        
-    }
-
-    function updateMenu(country, element) {
-
-        console.log('updating menu' + country);
-        $(svgMenu.select('#popularity-old tspan').node).text(Math.round(country.popularity.old * 100) + '%');
-        $(svgMenu.select('#popularity-young tspan').node).text(Math.round(country.popularity.young * 100) + '%');
-        $(svgMenu.select('#popularity-all tspan').node).text(Math.round(country.getOverallPopularity() * 100) + '%');
-
-        showChange('#popularity-old-change tspan', country.lastTurnEffect.popularityEffect.old);
-        showChange('#popularity-young-change tspan', country.lastTurnEffect.popularityEffect.young);
-        showChange('#popularity-all-change tspan', country.lastTurnEffect.popularityEffect.old);
-
-        svgMenu.select('#pomer_happy_stary').animate({width: country.popularity.old * 193}, 500);
-        svgMenu.select('#pomer_happy_mlady').animate({width: country.popularity.young * 193}, 500);
-        svgMenu.select('#pomer_happy_all').animate({width: country.getOverallPopularity() * 193}, 500);
-
-        infoTableContent.innerHTML = CreateTableForCountry(country);
-    }
 
 
 
@@ -612,6 +618,7 @@ function InitGame()
 
         gameState.turnEnd();
         UpdateVisual();
+        
 
         if (gameState.isWin())
         {
